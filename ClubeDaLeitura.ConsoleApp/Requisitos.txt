@@ -1,0 +1,63 @@
+﻿Clube da Leitura
+
+Legenda:
+
+► Regra de negócio
+
+■ Atributo
+
+Gustavo tem uma coleção grande de revistas em quadrinhos. Por isso, resolveu
+Mas para não perder nenhuma revista, emprestar para os amigos. Assim foi criado o Clube da Leitura.
+
+seu pai contratou os alunos da Academia do
+Programador 2024 para fazer uma aplicação que cadastra as revistas e controla os
+empréstimos.
+
+O cadastro do Amigo consiste de:
+■ nome
+■ nome do responsável
+■ telefone
+■ endereço
+-----------------OK-----------------
+Regras de negócio - Implementação de requsitos
+
+1. Os amigos têm a possibilidade de receber Multas
+► Visualizar amigos com Multas em aberto
+► Não pode emprestar para amigos que tem Multas em aberto
+► Quitar Multas
+
+Para ter mais controle sobre a devolução das revistas, Gustavo quer ter a possibilidade de cadastrar Caixas de Revistas.
+• Para cada Caixa, deverá ser cadastrado:
+■ Uma etiqueta
+■ a cor da caixa
+■ quantidade de Dias de Empréstimo
+■ revistas
+► Ex: Revistas da caixa “Novidade” podem ser emprestadas apenas por 3 dias
+
+Para cada Revista, deverá ser cadastrado:
+■ o título da revista
+■ o número da edição
+■ o ano da revista
+■ a caixa onde está guardada
+
+
+­• Para cada Empréstimo cadastram-se:
+■ o amigo que pegou a revista
+■ qual foi a revista emprestada
+■ a data do empréstimo
+■ a data de devolução
+■ status indicando se foi concluído
+
+► Cada amigo só pode pegar uma revista por empréstimo.
+► Mensalmente Gustavo verifica os empréstimos realizados no mês
+► diariamente os empréstimos que estão em aberto.
+
+
+► Calcular data de Devolução baseando-se na Caixa da Revista
+► Cobrar Multa para Devoluções atrasadas
+
+► Nossos amigos querem ter a possibilidade de cadastrar uma Reserva para as Revistas.
+► A reserva é válida apenas por 2 dias, passados 2 dias ela expira
+► Mesmos campos do empréstimo (amigo, revista)
+► A partir da tela de reservas, já poderá fazer empréstimos
+► status indicando se está expirada
