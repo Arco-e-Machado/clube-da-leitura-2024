@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
 {
-    internal class TelaRevistas
+    internal class TelaRevistas : TelaBase
     {
     }
 }

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
+﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+namespace ClubeDaLeitura.ConsoleApp
 {
-    internal class RepositorioRevistas
+    public class RepositorioRevistas : RepositorioCompartilhado
     {
     }
 }

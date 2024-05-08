@@ -12,7 +12,7 @@ namespace ClubeDaLeitura.ConsoleApp.Revistas
         public DateTime anoDeEdicao { get; set; }
         public string numeroEdicao { get; set; }
 
-        public Revista(string titulo, DateTime anoDeEdicao, string numeroEdicao )
+        public Revista(string titulo, DateTime anoDeEdicao, string numeroEdicao)
         {
             this.titulo = titulo;
             this.anoDeEdicao = anoDeEdicao;
