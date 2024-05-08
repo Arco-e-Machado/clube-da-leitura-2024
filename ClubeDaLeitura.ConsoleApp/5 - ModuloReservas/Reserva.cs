@@ -9,13 +9,13 @@ using ClubeDaLeitura.ConsoleApp.Revistas;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
 {
-    internal class Reservas : EntidadeBase
+    internal class Reserva : EntidadeBase
     {
-        public string nomeFilho {  get; set; }
-        public string nomeRevista {  get; set; }
+        public string nomeFilho { get; set; }
+        public string nomeRevista { get; set; }
         public int QtDiasReservados { get; set; }
 
-        public Reservas(int QtDiasReservados, string nomeFilho, string nomeRevista) : base ()
+        public Reserva(int QtDiasReservados, string nomeFilho, string nomeRevista) : base()
         {
             this.QtDiasReservados = QtDiasReservados;
             this.nomeFilho = nomeFilho;

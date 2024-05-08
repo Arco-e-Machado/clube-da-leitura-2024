@@ -1,6 +1,6 @@
 ﻿namespace ClubeDaLeitura.ConsoleApp
 {
-    public class Locador : Pessoa
+    internal class Locador : Pessoa
     {
         public string responsavel { get; set; }
 

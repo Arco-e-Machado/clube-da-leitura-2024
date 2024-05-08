@@ -6,7 +6,7 @@ using ClubeDaLeitura.ConsoleApp.Compartilhado;
 
 namespace ClubeDaLeitura.ConsoleApp.Repositorios
 {
-    public class Caixa : RepositorioCompartilhado
+    internal class Caixa : RepositorioCompartilhado
     {
         private int cor;
         private int diasEmprestimo;

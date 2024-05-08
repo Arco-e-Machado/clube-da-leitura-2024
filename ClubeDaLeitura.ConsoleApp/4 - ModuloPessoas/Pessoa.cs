@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ClubeDaLeitura.ConsoleApp
 {
-    public class Pessoa : EntidadeBase
+    internal class Pessoa : EntidadeBase
     {
 
         public string nome { get; set; }
