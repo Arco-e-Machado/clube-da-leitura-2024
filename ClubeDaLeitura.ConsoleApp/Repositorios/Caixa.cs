@@ -9,7 +9,7 @@ namespace ClubeDaLeitura.ConsoleApp.Repositorios
     public class Caixa : RepositorioCompartilhado
     {
         private int cor;
-        private int quantidadeDeDias;
+        private int diasEmprestimo;
         private int etiqueta;
         private int revista;
     }

@@ -10,5 +10,6 @@ namespace ClubeDaLeitura.ConsoleApp.Revistas
     {
         public string titulo { get; set; }
         public DateTime anoDeEdicao { get; set; }
+        public string numeroEdicao { get; set; }    
     }
 }
