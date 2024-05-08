@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
 
-namespace ClubeDaLeitura.ConsoleApp.Pessoas.ModuloAmigo
+namespace ClubeDaLeitura.ConsoleApp.Pessoas
 {
     public class Amigo : EntidadeBase
     {

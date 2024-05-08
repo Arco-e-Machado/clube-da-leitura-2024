@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ClubeDaLeitura.ConsoleApp.Pessoas.ModuloAmigo;
+using System.Threading.Tasks;
 
 namespace ClubeDaLeitura.ConsoleApp.Pessoas
 {
-    public class Responsavel : Amigo
+    internal class RepositorioPessoas
     {
-
     }
 }
