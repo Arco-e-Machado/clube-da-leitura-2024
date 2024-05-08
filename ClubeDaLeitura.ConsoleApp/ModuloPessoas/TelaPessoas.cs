@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 
-namespace ClubeDaLeitura.ConsoleApp.Pessoas
+namespace ClubeDaLeitura.ConsoleApp
 {
-    internal class TelaPessoas
+    public class TelaPessoas : TelaBase
     {
     }
 }

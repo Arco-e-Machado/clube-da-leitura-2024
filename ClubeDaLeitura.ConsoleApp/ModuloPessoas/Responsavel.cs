@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ClubeDaLeitura.ConsoleApp.Pessoas
+﻿namespace ClubeDaLeitura.ConsoleApp
 {
-    public class Responsavel : Amigo
+    public class Responsavel : Pessoa
     {
+        public Responsavel(string nome, string endereco, string telefone) : base(nome, endereco, telefone)
+        {
 
+        }
     }
 }

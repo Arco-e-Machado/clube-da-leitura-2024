@@ -8,7 +8,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
     public class EntidadeBase
     {
         private int contador = 1;
-        public static int Id { get; set; }
+        public static int _id { get; set; }
 
         public EntidadeBase() { int id = IncrementarID(); }
 

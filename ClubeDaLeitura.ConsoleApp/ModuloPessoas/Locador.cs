@@ -1,12 +1,13 @@
 ﻿namespace ClubeDaLeitura.ConsoleApp
 {
-    public class Filho : Amigo
+    public class Locador : Pessoa
     {
         public string responsavel { get; set; }
 
-        public Filho(string responsavel)
+        public Locador(string nome, string endereco, string telefone, string responsavel) : base( nome, endereco, telefone)
         {
             this.responsavel = responsavel;
         }
+
     }
 }
