@@ -5,12 +5,12 @@ using System.Text;
 
 namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 {
-    public class Entidade
+    public class EntidadeBase
     {
         private int contador = 1;
-        public static int _id { get; set; }
+        public static int Id { get; set; }
 
-        public Entidade() { int _id = IncrementarID(); }
+        public EntidadeBase() { int id = IncrementarID(); }
 
         private int IncrementarID()
         {

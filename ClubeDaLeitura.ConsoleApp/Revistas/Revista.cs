@@ -6,7 +6,7 @@ using ClubeDaLeitura.ConsoleApp.Compartilhado;
 
 namespace ClubeDaLeitura.ConsoleApp.Revistas
 {
-    public class Revista : Entidade
+    public class Revista : EntidadeBase
     {
         public string titulo { get; set; }
         public DateTime anoDeEdicao { get; set; }

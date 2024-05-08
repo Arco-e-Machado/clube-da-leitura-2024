@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
 
-namespace ClubeDaLeitura.ConsoleApp.Pessoas
+namespace ClubeDaLeitura.ConsoleApp.Pessoas.ModuloAmigo
 {
-    public class Pessoa : Entidade
+    public class Amigo : EntidadeBase
     {
         protected string nome { get; set; }
         protected string telefone { get; set; }
