@@ -6,7 +6,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
     {
         protected ArrayList registros = new ArrayList();
 
-        protected int contadorId = 0;
+        protected int contadorId = 1;
 
         public void Cadastrar(EntidadeBase novoRegistro)
         {

@@ -23,7 +23,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
             Console.WriteLine("Por favor, informe o endereço");
             string endereco = Convert.ToString(Console.ReadLine());
 
-            return new Filho(nome, responsavel, telefone, endereco);
+            return new Amigo(nome, responsavel, telefone, endereco);
         }
 
         public override void VisualizarRegistros(bool verTudo)
@@ -39,11 +39,11 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 
             ArrayList pessoasCadastradas = repositorio.PegaRegistros();
 
-            foreach (Filho filho in pessoasCadastradas)
+            foreach (Amigo amigo in pessoasCadastradas)
             {
                 Console.WriteLine(
                "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20}",
-                filho._ID, filho.nome, filho.responsavel, filho.telefone, filho.endereco
+                amigo._ID, amigo.nome, amigo.responsavel, amigo.telefone, amigo.endereco
                 );
             }
 
@@ -53,7 +53,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 
         public void CadastroTeste()
         {
-            Filho novoFilhoTeste = new("Zézinho", "Rodrigues", "4002-8922", "Duarte da costa");
+            Amigo novoFilhoTeste = new Amigo("leo filho", "leo responsável", "Duarte da costa", "4002-8922");
 
             repositorio.Cadastrar(novoFilhoTeste);
         }

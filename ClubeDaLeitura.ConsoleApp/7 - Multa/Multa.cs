@@ -12,9 +12,9 @@ namespace ClubeDaLeitura.ConsoleApp
         public int dias { get; set; }
         public int valor { get; set; }
         public int revista { get; set; }
-        public ModuloPessoas.Filho filho { get; set; }
+        public ModuloPessoas.Amigo filho { get; set; }
 
-        public Multa(int dias, int valor, int revista, ModuloPessoas.Filho filho)
+        public Multa(int dias, int valor, int revista, ModuloPessoas.Amigo filho)
         {
             dias = dias;
             valor = valor;

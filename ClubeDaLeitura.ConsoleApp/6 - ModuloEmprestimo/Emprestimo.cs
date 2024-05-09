@@ -7,13 +7,13 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimos
 {
     public abstract class Emprestimo : EntidadeBase
     {
-        public Filho filho { get; set; }
+        public Amigo filho { get; set; }
         public Revista revista { get; set; }
         public DateTime dataEmprestimo { get; set; }
         public DateTime dataDevolucao { get; set; }
         public bool statusEmprestimo { get; set; }
 
-        public Emprestimo(Filho filho, Revista revista, DateTime dataEmprestimo, DateTime dataDevolucao, bool statusEmprestimo)
+        public Emprestimo(Amigo filho, Revista revista, DateTime dataEmprestimo, DateTime dataDevolucao, bool statusEmprestimo)
         {
             this.filho = filho;
             this.revista = revista;
