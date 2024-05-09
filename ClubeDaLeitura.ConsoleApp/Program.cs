@@ -19,8 +19,8 @@ namespace ClubeDaLeitura.ConsoleApp
             telaPessoas.tipoEntidade = "Pessoas";
             telaPessoas.repositorio = repositorioPessoas;
 
-            ModuloCaixas.RepositorioCaixa repositorioCaixa = new ModuloCaixas.RepositorioCaixa();
-            ModuloCaixas.TelaCaixa telaCaixa = new ModuloCaixas.TelaCaixa();
+            RepositorioCaixa repositorioCaixa = new RepositorioCaixa();
+            TelaCaixa telaCaixa = new TelaCaixa();
             telaCaixa.tipoEntidade = "Caixa";
             telaCaixa.repositorio = repositorioCaixa;
 

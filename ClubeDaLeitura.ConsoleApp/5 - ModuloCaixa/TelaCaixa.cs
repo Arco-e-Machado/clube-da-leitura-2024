@@ -44,19 +44,19 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
             Console.WriteLine();
 
             Console.WriteLine(
-             "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -15}",
-             "Id", "Titulo", "Numero da Edicao", "Ano", "Caixa", "Emprestada ?"
+             "{0, -10} | {1, -15} | {2, -20} | {3, -15}",
+             "Id", "Etiqueta", "Cor", "Tempo De Emprestimo"
          );
 
             ArrayList caixasCadastradas= repositorio.PegaRegistros();
 
             foreach (Caixa caixa in caixasCadastradas)
             {
-               // Console.WriteLine(
-               //"{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -15}",
-               // revista.id, revista.Titulo, revista.NumeroDaEdicao,
-               // revista.Ano, revista.Caixa, revista.Status
-              //);
+                Console.WriteLine(
+               "{0, -10} | {1, -15} | {2, -20} | {3, -15}",
+                caixa._ID, caixa.etiqueta, caixa.cor,
+                caixa.tempoDeEmprestimo
+              );
             }
 
             Console.ReadLine();

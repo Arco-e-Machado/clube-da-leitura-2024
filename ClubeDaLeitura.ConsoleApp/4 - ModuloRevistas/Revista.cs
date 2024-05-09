@@ -32,7 +32,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
             if (string.IsNullOrEmpty(titulo.Trim()))
                 erros.Add("O campo \"nome\" é obrigatório");
 
-            if (numeroDeEdicao == 0 || numeroDeEdicao == null)+
+            if (numeroDeEdicao == 0 || numeroDeEdicao == null);
                 erros.Add("O campo \"numero da edição\" é obrigatório");
 
             if (dataDeEdicao == null)

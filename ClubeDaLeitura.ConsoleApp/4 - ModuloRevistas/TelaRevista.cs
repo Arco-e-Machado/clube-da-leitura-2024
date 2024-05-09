@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixas;
 
@@ -30,6 +31,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
             Caixa repositorioRevista = (ModuloCaixas.Caixa)repositorio.SelecionaPorId(idCaixa);
 
             bool status = false;
+            
 
             return new Revista(titulo, numeroDeEdicao, repositorioRevista, dataDeEdicao, status);
         }
