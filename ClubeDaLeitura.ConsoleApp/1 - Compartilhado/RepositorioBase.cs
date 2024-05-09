@@ -30,7 +30,7 @@ namespace ClubeDaLeitura.ConsoleApp
 
                 else if (entidade._ID == id)
                 {
-                    entidade.AtualizarRegistro(novaEntidade);
+                    //entidade.AtualizarRegistro(novaEntidade);
 
                     return true;
                 }

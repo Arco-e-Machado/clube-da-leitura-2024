@@ -15,9 +15,9 @@ namespace ClubeDaLeitura.ConsoleApp
         {
             _ID = IncrementarID();
         }
-        public abstract ArrayList Validar();
+        //public abstract ArrayList Validar();
 
-        public abstract void AtualizarRegistro(EntidadeBase novoegistro);
+        //public abstract void AtualizarRegistro(EntidadeBase novoegistro);
         public int IncrementarID()
         {
             return contador++;
