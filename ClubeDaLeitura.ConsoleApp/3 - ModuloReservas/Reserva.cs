@@ -11,10 +11,10 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
     {
         public Revista revista { get; set; }
         public DateTime dataReserva { get; set; }
-        public ModuloPessoas.Filho filho { get; set; }
+        public ModuloPessoas.Amigo filho { get; set; }
         public bool statusReserva { get; set; }
 
-        public Reserva(Revista revista, DateTime dataReserva, ModuloPessoas.Filho filho, bool statusReserva)
+        public Reserva(Revista revista, DateTime dataReserva, ModuloPessoas.Amigo filho, bool statusReserva)
         {
             revista = revista;
             dataReserva = dataReserva;

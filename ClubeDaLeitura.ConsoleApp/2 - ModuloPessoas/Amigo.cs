@@ -1,19 +1,22 @@
-﻿using System.Collections;
-using ClubeDaLeitura.ConsoleApp.Compartilhado;
+﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using System.Collections;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 {
-    public class Pessoas : EntidadeBase
+    public class Amigo : Pessoas
     {
-        public string nome { get; set; }
-        public string telefone { get; set; }
-        public string endereco { get; set; }
+        public string responsavel { get; set; }
 
-        public Pessoas(string nome, string endereco, string telefone)
+        public string nome { get; set; }
+        public string endereco { get; set; }
+        public string telefone { get; set; }
+
+        public Amigo(string nome, string responsavel, string endereco, string telefone) : base(nome, endereco, telefone)
         {
             this.nome = nome;
-            this.telefone = telefone;
+            this.responsavel = responsavel;
             this.endereco = endereco;
+            this.telefone = telefone;
         }
 
         public override ArrayList Validar()
@@ -34,9 +37,10 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
-            Pessoas registroNovo = (Pessoas)novoRegistro;
+            Amigo registroNovo = (Amigo)novoRegistro;
 
             this.nome = registroNovo.nome;
+            this.responsavel = registroNovo.responsavel;
             this.telefone = registroNovo.telefone;
             this.endereco = registroNovo.endereco;
         }
