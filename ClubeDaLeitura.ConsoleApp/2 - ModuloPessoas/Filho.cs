@@ -1,4 +1,6 @@
-﻿namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
+﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+
+namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 {
     public class Filho : Pessoas
     {

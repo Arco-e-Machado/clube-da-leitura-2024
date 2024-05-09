@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloCaixas;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
 {
@@ -19,6 +20,21 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
             this.etiqueta = etiqueta;
             this.cor = cor;
             this.tempoDeEmprestimo = tempoDeEmprestimo;
+        }
+        public override ArrayList Validar()
+        {
+            ArrayList erros = new ArrayList();
+
+            if (string.IsNullOrEmpty(etiqueta.Trim()))
+                erros.Add("O campo \"nome\" é obrigatório");
+
+            if (string.IsNullOrEmpty(cor.Trim()))
+                erros.Add("O campo \"telefone\" é obrigatório");
+
+            if (int.IsNullOrEmpty(tempoDeEmprestimo.Trim()))
+                erros.Add("O campo \"endereço\" é obrigatório");
+
+            return erros;
         }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
