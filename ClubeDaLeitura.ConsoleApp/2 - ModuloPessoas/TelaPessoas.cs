@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +7,9 @@ using System.Text;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 {
-    internal class TelaPessoas : Compartilhado.TelaBase
+    internal class TelaPessoas : TelaBase
     {
-        protected override Compartilhado.EntidadeBase ObterRegistro()
+        protected override EntidadeBase ObterRegistro()
         {
             Console.WriteLine("Por favor, informe o nome do amigo");
             string nome = Convert.ToString(Console.ReadLine());

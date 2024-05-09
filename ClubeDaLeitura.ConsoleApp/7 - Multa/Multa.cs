@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ClubeDaLeitura.ConsoleApp.Compartilhado;
+
 
 namespace ClubeDaLeitura.ConsoleApp
 {
-    public abstract class Multa : Compartilhado.EntidadeBase
+    public abstract class Multa : EntidadeBase
     {
         public int dias { get; set; }
         public int valor { get; set; }
@@ -20,7 +22,7 @@ namespace ClubeDaLeitura.ConsoleApp
             filho = filho;
         }
 
-        public override void AtualizarRegistro(Compartilhado.EntidadeBase novoegistro)
+        public override void AtualizarRegistro(EntidadeBase novoegistro)
         {
             throw new NotImplementedException();
         }
