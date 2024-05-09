@@ -31,7 +31,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
             if (string.IsNullOrEmpty(cor.Trim()))
                 erros.Add("O campo \"telefone\" é obrigatório");
 
-            if (int.IsNullOrEmpty(tempoDeEmprestimo.Trim()))
+            if (tempoDeEmprestimo == 0 || tempoDeEmprestimo == null)
                 erros.Add("O campo \"endereço\" é obrigatório");
 
             return erros;
