@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloRevistas;
+using System.Text.RegularExpressions;
 
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
@@ -64,7 +65,9 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
 
         internal void CadastroTeste()
         {
-            throw new NotImplementedException();
+            Caixa caixaTeste = new("Terror", "Amarelo", 9);
+
+            repositorio.Cadastrar(caixaTeste);
         }
 
         internal void VisualizarRevistas()

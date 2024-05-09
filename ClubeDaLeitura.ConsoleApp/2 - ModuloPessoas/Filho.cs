@@ -5,6 +5,11 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
     public class Filho : Pessoas
     {
         public string responsavel { get; set; }
+
+        public string nome { get; set; }
+        public string endereco { get; set; }
+        public string telefone { get; set; }
+
         public Filho(string nome, string endereco, string telefone, string responsavel) : base(nome, telefone, endereco)
         {
             this.responsavel = responsavel;
