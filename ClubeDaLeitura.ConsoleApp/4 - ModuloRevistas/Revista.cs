@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixas;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using System.Collections;
+using System.Runtime.ConstrainedExecution;
 
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
@@ -23,6 +25,22 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
             this.numeroDeEdicao = numeroDeEdicao;
             this.repositorio = repositorio;
         }
+        public override ArrayList Validar()
+        {
+            ArrayList erros = new ArrayList();
+            var hoje = DateTime.Now;
+            if (string.IsNullOrEmpty(titulo.Trim()))
+                erros.Add("O campo \"nome\" é obrigatório");
+
+            if (numeroDeEdicao == 0 || numeroDeEdicao == null)+
+                erros.Add("O campo \"numero da edição\" é obrigatório");
+
+            if (dataDeEdicao == null)
+                erros.Add("O campo \"data de edição\" é obrigatório");
+
+            return erros;
+        }
+
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
             Revista registroNovo = (Revista)novoRegistro;
