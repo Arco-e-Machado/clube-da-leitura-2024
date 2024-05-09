@@ -53,7 +53,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 
         public void CadastroTeste()
         {
-            Filho novoFilhoTeste = new Filho("Zézinho", "Rodrigues", "4002-8922", "Duarte da costa");
+            Filho novoFilhoTeste = new("Zézinho", "Rodrigues", "4002-8922", "Duarte da costa");
 
             repositorio.Cadastrar(novoFilhoTeste);
         }
