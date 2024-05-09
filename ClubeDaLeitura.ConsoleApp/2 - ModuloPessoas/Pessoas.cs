@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ClubeDaLeitura.ConsoleApp.Compartilhado;
-
+﻿using System.Collections;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 {
@@ -21,21 +15,21 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
             this.endereco = endereco;
         }
 
-        //public override ArrayList Validar()
-        //{
-        //    ArrayList erros = new ArrayList();
+        public override ArrayList Validar()
+        {
+            ArrayList erros = new ArrayList();
 
-        //    if (string.IsNullOrEmpty(nome.Trim()))
-        //        erros.Add("O campo \"nome\" é obrigatório");
+            if (string.IsNullOrEmpty(nome.Trim()))
+                erros.Add("O campo \"nome\" é obrigatório");
 
-        //    if (string.IsNullOrEmpty(telefone.Trim()))
-        //        erros.Add("O campo \"telefone\" é obrigatório");
+            if (string.IsNullOrEmpty(telefone.Trim()))
+                erros.Add("O campo \"telefone\" é obrigatório");
 
-        //    if (string.IsNullOrEmpty(endereco.Trim()))
-        //        erros.Add("O campo \"endereço\" é obrigatório");
+            if (string.IsNullOrEmpty(endereco.Trim()))
+                erros.Add("O campo \"endereço\" é obrigatório");
 
-        //    return erros;
-        //}
+            return erros;
+        }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {

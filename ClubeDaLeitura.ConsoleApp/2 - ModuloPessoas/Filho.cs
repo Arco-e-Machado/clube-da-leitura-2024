@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ClubeDaLeitura.ConsoleApp.Compartilhado;
-
-namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
+﻿namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 {
     public class Filho : Pessoas
     {
-
         public string responsavel { get; set; }
         public Filho(string nome, string endereco, string telefone, string responsavel) : base(nome, telefone, endereco)
         {

@@ -22,6 +22,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
             this.nomeFilho = registroNovo.nomeFilho;
             this.telefone = registroNovo.telefone;
             this.endereco = registroNovo.endereco;
+
         }
         private void PagarContas() { }
     }
