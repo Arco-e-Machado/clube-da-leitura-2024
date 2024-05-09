@@ -7,7 +7,7 @@ using ClubeDaLeitura.ConsoleApp.Compartilhado;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
 {
-    public abstract class Caixa : EntidadeBase
+    public class Caixa : EntidadeBase
     {
         public string etiqueta { get; set; }
         public string cor { get; set; }

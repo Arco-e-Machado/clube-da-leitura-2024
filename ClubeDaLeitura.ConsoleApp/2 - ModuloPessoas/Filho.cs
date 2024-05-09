@@ -6,7 +6,7 @@ using ClubeDaLeitura.ConsoleApp.Compartilhado;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 {
-    public abstract class Filho : Pessoas
+    public class Filho : Pessoas
     {
 
         public string responsavel { get; set; }

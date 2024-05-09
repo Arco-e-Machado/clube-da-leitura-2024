@@ -8,7 +8,7 @@ using ClubeDaLeitura.ConsoleApp.Compartilhado;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
 {
-    public abstract class Revista : EntidadeBase
+    public class Revista : EntidadeBase
     {
         public string titulo { get; set; }
         public int numeroDeEdicao { get; set; }

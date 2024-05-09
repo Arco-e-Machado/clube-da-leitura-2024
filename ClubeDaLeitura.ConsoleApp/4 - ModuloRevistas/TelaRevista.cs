@@ -34,7 +34,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
             return new Revista(titulo, numeroDeEdicao, repositorioRevista, dataDeEdicao, status);
         }
 
-        protected override void VisualizarRegistros(bool verTudo)
+        public override void VisualizarRegistros(bool verTudo)
         {
             Console.WriteLine("Visualizando Revistas");
 
