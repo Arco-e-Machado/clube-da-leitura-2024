@@ -57,7 +57,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             VisualizarRegistros(false);
 
-            Console.WriteLine($"informe o ID do {tipoEntidade} a ser EDITADO");
+            Console.WriteLine($"informe o ID do {tipoEntidade} a ser editado");
             int idEscolhido = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("");
@@ -82,7 +82,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             VisualizarRegistros(false);
 
-            Console.WriteLine($"informe o ID do {tipoEntidade} a ser EXCLUIDO");
+            Console.WriteLine($"informe o ID do {tipoEntidade} a ser excluido");
             int idEscolhido = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("");
