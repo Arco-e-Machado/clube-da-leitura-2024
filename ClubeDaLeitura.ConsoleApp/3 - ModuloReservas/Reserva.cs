@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloRevistas;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
 {
-    public class Reserva : Compartilhado.EntidadeBase
+    public abstract class Reserva : EntidadeBase
     {
         public Revista revista { get; set; }
         public DateTime dataReserva { get; set; }
@@ -20,7 +22,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
             statusReserva = statusReserva;
         }
 
-        public override void AtualizarRegistro(Compartilhado.EntidadeBase novoRegistro)
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
             Reserva registroNovo = (Reserva)novoRegistro;
 

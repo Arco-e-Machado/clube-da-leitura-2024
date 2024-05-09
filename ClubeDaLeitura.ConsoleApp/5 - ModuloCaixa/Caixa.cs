@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ClubeDaLeitura.ConsoleApp.Compartilhado;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
 {
-    public class Caixa : Compartilhado.EntidadeBase
+    public abstract class Caixa : EntidadeBase
     {
         public string etiqueta { get; set; }
         public string cor { get; set; }
@@ -20,7 +21,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
             this.tempoDeEmprestimo = tempoDeEmprestimo;
         }
 
-        public override void AtualizarRegistro(Compartilhado.EntidadeBase novoRegistro)
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
             Caixa registroNovo = (Caixa)novoRegistro;
 

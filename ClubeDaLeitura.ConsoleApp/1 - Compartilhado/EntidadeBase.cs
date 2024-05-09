@@ -10,7 +10,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
     {
         public int _ID { get; set; }
 
-        //public abstract ArrayList Validar();
+        public abstract ArrayList Validar();
 
         public abstract void AtualizarRegistro(EntidadeBase novoegistro);
     }

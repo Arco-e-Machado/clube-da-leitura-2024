@@ -1,6 +1,10 @@
-﻿using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
+﻿using ClubeDaLeitura.ConsoleApp.ModuloCaixas;
 using ClubeDaLeitura.ConsoleApp.ModuloPessoas;
-using ClubeDaLeitura.ConsoleApp.ModuloRevista;
+using ClubeDaLeitura.ConsoleApp.ModuloRevistas;
+using ClubeDaLeitura.ConsoleApp.ModuloEmprestimos;
+using ClubeDaLeitura.ConsoleApp.ModuloReservas;
+using ClubeDaLeitura.ConsoleApp.ModuloMultas;
+using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using System.Globalization;
 
 namespace ClubeDaLeitura.ConsoleApp
@@ -16,13 +20,13 @@ namespace ClubeDaLeitura.ConsoleApp
             telaPessoas.repositorio = repositorioPessoas;
 
             ModuloCaixas.RepositorioCaixa repositorioCaixa = new ModuloCaixas.RepositorioCaixa();
-            TelaCaixa telaCaixa = new TelaCaixa();
+            ModuloCaixas.TelaCaixa telaCaixa = new ModuloCaixas.TelaCaixa();
             telaCaixa.tipoEntidade = "Caixa";
             telaCaixa.repositorio = repositorioCaixa;
 
-            RepositorioEmprestimo repositorioEmprestimo = new RepositorioEmprestimo();
+            RepositorioEmprestimos repositorioEmprestimo = new RepositorioEmprestimos();
 
-            RepositorioReserva repositorioReserva = new RepositorioReserva();
+            RepositorioReservas repositorioReserva = new RepositorioReservas();
 
             RepositorioRevistas repositorioRevistas = new RepositorioRevistas();
             TelaRevista telaRevista = new TelaRevista();

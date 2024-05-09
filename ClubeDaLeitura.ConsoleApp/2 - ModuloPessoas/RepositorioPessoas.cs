@@ -1,6 +1,8 @@
-﻿namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
+﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
+
 {
-    internal  class RepositorioPessoas : Compartilhado.RepositorioBase
+    internal  class RepositorioPessoas : RepositorioBase
     {
     }
 }

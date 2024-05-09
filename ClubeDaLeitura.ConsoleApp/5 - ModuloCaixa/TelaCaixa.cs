@@ -4,13 +4,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloRevistas;
+
+
 namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
 {
-    internal class TelaCaixa : Compartilhado.TelaBase
+    internal class TelaCaixa : TelaBase
     {
-        public ModuloRevistas.Revista revistas;
+        public Revista revistas;
 
-        protected override Compartilhado.EntidadeBase ObterRegistro()
+        protected override EntidadeBase ObterRegistro()
         {
             Console.WriteLine("Por favor, informe o etiqueta da caixa");
             string etiqueta = Convert.ToString(Console.ReadLine());

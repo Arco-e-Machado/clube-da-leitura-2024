@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ClubeDaLeitura.ConsoleApp.Compartilhado;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 {
-    public class Filho : Pessoas
+    public abstract class Filho : Pessoas
     {
 
         public string responsavel { get; set; }
@@ -13,7 +14,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
         {
             this.responsavel = responsavel;
         }
-        public override void AtualizarRegistro(Compartilhado.EntidadeBase novoRegistro)
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
             Filho registroNovo = (Filho)novoRegistro;
 

@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ClubeDaLeitura.ConsoleApp.Compartilhado;
+
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 {
-    public abstract class Pessoas : Compartilhado.EntidadeBase
+    public abstract class Pessoas : EntidadeBase
     {
         public string nome { get; set; }
         public string telefone { get; set; }
@@ -35,7 +37,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
         //    return erros;
         //}
 
-        public override void AtualizarRegistro(Compartilhado.EntidadeBase novoRegistro)
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
             Pessoas registroNovo = (Pessoas)novoRegistro;
 

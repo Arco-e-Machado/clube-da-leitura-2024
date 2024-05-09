@@ -3,16 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloCaixas;
+
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
 {
-    internal class TelaRevista : Compartilhado.TelaBase
+    internal class TelaRevista : TelaBase
     {
-        public ModuloCaixas.TelaCaixa telaCaixa = null;
+        public TelaCaixa telaCaixa = null;
 
-        public ModuloCaixas.RepositorioCaixa repositorioCaixa = null;
+        public RepositorioCaixa repositorioCaixa = null;
 
-        protected override Compartilhado.EntidadeBase ObterRegistro()
+        protected override EntidadeBase ObterRegistro()
         {
             Console.WriteLine("Por favor, informe o titulo da revista");
             string titulo = Convert.ToString(Console.ReadLine());
@@ -24,7 +27,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
 
             Console.WriteLine("Por favor, informe o ID da caixa");
             int idCaixa = Convert.ToInt32(Console.ReadLine());
-            ModuloCaixas.Caixa repositorioRevista = (ModuloCaixas.Caixa)repositorio.SelecionaPorId(idCaixa);
+            Caixa repositorioRevista = (ModuloCaixas.Caixa)repositorio.SelecionaPorId(idCaixa);
 
             bool status = false;
 
