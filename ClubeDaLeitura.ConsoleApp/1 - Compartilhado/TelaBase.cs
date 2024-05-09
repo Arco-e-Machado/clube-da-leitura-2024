@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ClubeDaLeitura.ConsoleApp
+namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 {
     internal abstract class TelaBase
     {
@@ -36,129 +36,71 @@ namespace ClubeDaLeitura.ConsoleApp
             return operacaoEscolhida;
         }
 
-        protected void InserirRegistro(EntidadeBase entidade)
-        {
-            ArrayList erros = entidade.Validar();
-
-            if (erros.Count > 0)
-            {
-                ApresentarErros(erros);
-                return;
-            }
-
-            repositorio.Cadastrar(entidade);
-
-            ExibirMensagem($"O {tipoEntidade} foi cadastrado com sucesso!", ConsoleColor.Green);
-        }
-
         public virtual void Registrar()
         {
-            ApresentarCabecalho();
+            Console.WriteLine($"Cadastrando{tipoEntidade}");
 
-            Console.WriteLine($"Cadastrando {tipoEntidade}...");
-
-            Console.WriteLine();
+            Console.WriteLine("");
 
             EntidadeBase entidade = ObterRegistro();
 
-            InserirRegistro(entidade);
+            repositorio.Cadastrar(entidade);
+
+            ExibirMensagem($"o {tipoEntidade} foi cadastrado com Sucesso", ConsoleColor.Green);
         }
 
         public void Editar()
         {
-            ApresentarCabecalho();
+            Console.WriteLine($"Editando {tipoEntidade}");
 
-            Console.WriteLine($"Editando {tipoEntidade}...");
-
-            Console.WriteLine();
+            Console.WriteLine("");
 
             VisualizarRegistros(false);
 
-            Console.Write($"Digite o ID do {tipoEntidade} que deseja editar: ");
-            int idEntidadeEscolhida = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"informe o ID do {tipoEntidade} a ser EDITADO");
+            int idEscolhido = Convert.ToInt32(Console.ReadLine());
 
-            if (!repositorio.Existe(idEntidadeEscolhida))
-            {
-                ExibirMensagem($"O {tipoEntidade} mencionado não existe!", ConsoleColor.DarkYellow);
-                return;
-            }
-
-            Console.WriteLine();
+            Console.WriteLine("");
 
             EntidadeBase entidade = ObterRegistro();
 
-            ArrayList erros = entidade.Validar();
+            bool consegueEditar = repositorio.Editar(idEscolhido, entidade);
 
-            if (erros.Count > 0)
+            if (!consegueEditar)
             {
-                ApresentarErros(erros);
-                return;
+                ExibirMensagem("Não foi possivel editar", ConsoleColor.Red);
             }
 
-            bool conseguiuEditar = repositorio.Editar(idEntidadeEscolhida, entidade);
-
-            if (!conseguiuEditar)
-            {
-                ExibirMensagem($"Houve um erro durante a edição de {tipoEntidade}", ConsoleColor.Red);
-                return;
-            }
-
-            ExibirMensagem($"O {tipoEntidade} foi editado com sucesso!", ConsoleColor.Green);
+            ExibirMensagem("Alteração concluida com sucesso", ConsoleColor.Green);
         }
 
         public void Excluir()
         {
-            ApresentarCabecalho();
+            Console.WriteLine($"Excluindo {tipoEntidade}");
 
-            Console.WriteLine($"Excluindo {tipoEntidade}...");
-
-            Console.WriteLine();
+            Console.WriteLine("");
 
             VisualizarRegistros(false);
 
-            Console.Write($"Digite o ID do {tipoEntidade} que deseja excluir: ");
-            int idRegistroEscolhido = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"informe o ID do {tipoEntidade} a ser EXCLUIDO");
+            int idEscolhido = Convert.ToInt32(Console.ReadLine());
 
-            if (!repositorio.Existe(idRegistroEscolhido))
+            Console.WriteLine("");
+
+
+            bool consegueExcuir = repositorio.Excluir(idEscolhido);
+
+            if (!consegueExcuir)
             {
-                ExibirMensagem($"O {tipoEntidade} mencionado não existe!", ConsoleColor.DarkYellow);
-                return;
+                ExibirMensagem("Não foi possivel excuir", ConsoleColor.Red);
             }
 
-            bool conseguiuExcluir = repositorio.Excluir(idRegistroEscolhido);
-
-            if (!conseguiuExcluir)
-            {
-                ExibirMensagem($"Houve um erro durante a exclusão do {tipoEntidade}", ConsoleColor.Red);
-                return;
-            }
-
-            ExibirMensagem($"O {tipoEntidade} foi excluído com sucesso!", ConsoleColor.Green);
+            ExibirMensagem("Remoção concluida com sucesso", ConsoleColor.Green);
         }
 
-        public abstract void VisualizarRegistros(bool exibirTitulo);
+        protected abstract void VisualizarRegistros(bool verTudo);
 
-        protected void ApresentarErros(ArrayList erros)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-
-            for (int i = 0; i < erros.Count; i++)
-                Console.WriteLine(erros[i]);
-
-            Console.ResetColor();
-            Console.ReadLine();
-        }
-
-        protected void ApresentarCabecalho()
-        {
-            Console.Clear();
-
-            Console.WriteLine("----------------------------------------");
-            Console.WriteLine("|       Controle de Medicamentos       |");
-            Console.WriteLine("----------------------------------------");
-
-            Console.WriteLine();
-        }
+        protected abstract EntidadeBase ObterRegistro();
 
         public void ExibirMensagem(string mensagem, ConsoleColor cor)
         {
@@ -173,6 +115,5 @@ namespace ClubeDaLeitura.ConsoleApp
             Console.ReadLine();
         }
 
-        protected abstract EntidadeBase ObterRegistro();
     }
 }

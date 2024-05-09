@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ClubeDaLeitura.ConsoleApp
+namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 {
-    internal abstract class RepositorioBase
+    internal class RepositorioBase
     {
         protected ArrayList registros = new ArrayList();
 
-        protected int contadorId = 1;
+        protected int contadorId = 0;
 
         public void Cadastrar(EntidadeBase novoRegistro)
         {
@@ -23,33 +23,56 @@ namespace ClubeDaLeitura.ConsoleApp
         {
             novaEntidade._ID = id;
 
-            foreach (EntidadeBase entidade in registros)
+            foreach (EntidadeBase registro in registros)
             {
-                if (entidade == null)
-                    continue;
-
-                else if (entidade._ID == id)
+                if (registro._ID == id)
                 {
-                    //entidade.AtualizarRegistro(novaEntidade);
+                    registro.AtualizarRegistro(novaEntidade);
 
                     return true;
                 }
             }
-
             return false;
         }
 
         public bool Excluir(int id)
         {
-            foreach (EntidadeBase entidade in registros)
+
+            foreach (EntidadeBase registro in registros)
             {
-                if (entidade == null)
-                    continue;
-
-                else if (entidade._ID == id)
+                if (registro._ID == id)
                 {
-                    registros.Remove(entidade);
+                    registros.Remove(registro);
 
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public ArrayList PegaRegistros()
+        {
+            return registros;
+        }
+
+        public EntidadeBase SelecionaPorId(int id)
+        {
+            foreach (EntidadeBase registro in registros)
+            {
+                if (registro._ID == id)
+                {
+                    return registro;
+                }
+            }
+            return null;
+        }
+
+        public bool Existe(int id)
+        {
+            foreach (EntidadeBase registro in registros)
+            {
+                if (registro._ID == id)
+                {
                     return true;
                 }
             }
@@ -57,37 +80,5 @@ namespace ClubeDaLeitura.ConsoleApp
             return false;
         }
 
-        public ArrayList SelecionarTodos()
-        {
-            return registros;
-        }
-
-        public EntidadeBase SelecionarPorId(int id)
-        {
-            foreach (EntidadeBase e in registros)
-            {
-                if (e == null)
-                    continue;
-
-                else if (e._ID == id)
-                    return e;
-            }
-
-            return null;
-        }
-
-        public bool Existe(int id)
-        {
-            foreach (EntidadeBase e in registros)
-            {
-                if (e == null)
-                    continue;
-
-                else if (e._ID == id)
-                    return true;
-            }
-
-            return false;
-        }
     }
 }

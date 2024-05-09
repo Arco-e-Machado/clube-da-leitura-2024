@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ClubeDaLeitura.ConsoleApp
+namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 {
-    internal abstract class Pessoas : EntidadeBase
+    public abstract class Pessoas : Compartilhado.EntidadeBase
     {
         public string nome { get; set; }
         public string telefone { get; set; }
@@ -19,25 +19,29 @@ namespace ClubeDaLeitura.ConsoleApp
             this.endereco = endereco;
         }
 
-        public override ArrayList Validar()
+        //public override ArrayList Validar()
+        //{
+        //    ArrayList erros = new ArrayList();
+
+        //    if (string.IsNullOrEmpty(nome.Trim()))
+        //        erros.Add("O campo \"nome\" é obrigatório");
+
+        //    if (string.IsNullOrEmpty(telefone.Trim()))
+        //        erros.Add("O campo \"telefone\" é obrigatório");
+
+        //    if (string.IsNullOrEmpty(endereco.Trim()))
+        //        erros.Add("O campo \"endereço\" é obrigatório");
+
+        //    return erros;
+        //}
+
+        public override void AtualizarRegistro(Compartilhado.EntidadeBase novoRegistro)
         {
-            ArrayList erros = new ArrayList();
+            Pessoas registroNovo = (Pessoas)novoRegistro;
 
-            if (string.IsNullOrEmpty(nome.Trim()))
-                erros.Add("O campo \"nome\" é obrigatório");
-
-            if (string.IsNullOrEmpty(telefone.Trim()))
-                erros.Add("O campo \"telefone\" é obrigatório");
-
-            if (string.IsNullOrEmpty(endereco.Trim()))
-                erros.Add("O campo \"endereço\" é obrigatório");
-
-            return erros;
-        }
-
-        public override void AtualizarRegistro(EntidadeBase novoegistro)
-        {
-            throw new NotImplementedException();
+            this.nome = registroNovo.nome;
+            this.telefone = registroNovo.telefone;
+            this.endereco = registroNovo.endereco;
         }
     }
 }

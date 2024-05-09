@@ -1,66 +1,87 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="ClubeDaLeitura.ConsoleApp.EntidadeBase" Collapsed="true">
-    <Position X="3.25" Y="0.5" Width="1.5" />
+  <Class Name="ClubeDaLeitura.ConsoleApp.Compartilhado.EntidadeBase" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAAACAAAAAAQAAAAAAAAAFAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>1 - Compartilhado\EntidadeBase.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ClubeDaLeitura.ConsoleApp.RepositorioBase" Collapsed="true">
-    <Position X="5.75" Y="6.5" Width="1.5" />
+  <Class Name="ClubeDaLeitura.ConsoleApp.Compartilhado.TelaBase" Collapsed="true">
+    <Position X="7" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABAAAAAAAECAQAAAAAAAAAAAABAAAAAAEQAAA=</HashCode>
-      <FileName>1 - Compartilhado\RepositorioBase.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ClubeDaLeitura.ConsoleApp.TelaBase" Collapsed="true">
-    <Position X="5.75" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAACAAAAAAQAQAEAAIAAAAQSAIAAAAAAgAAAAAQAAQ=</HashCode>
+      <HashCode>AAAACAAAAAAQAAAEAAAAAAAQSAAAAAAAAgAAAAAQAAQ=</HashCode>
       <FileName>1 - Compartilhado\TelaBase.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ClubeDaLeitura.ConsoleApp.Pessoas">
-    <Position X="2" Y="1.75" Width="1.5" />
+  <Class Name="ClubeDaLeitura.ConsoleApp.ModuloPessoas.Pessoas">
+    <Position X="1" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAIAAAAAAAACAAAAAAQAAAAAQAAAAAAA=</HashCode>
+      <HashCode>AQAAAAAAAAAAAIAAAAAAAACAAAAAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>2 - ModuloPessoas\Pessoas.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ClubeDaLeitura.ConsoleApp.Responsavel">
-    <Position X="1" Y="5" Width="1.5" />
+  <Class Name="ClubeDaLeitura.ConsoleApp.ModuloPessoas.Responsavel">
+    <Position X="1" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAACAAAAAAA=</HashCode>
       <FileName>2 - ModuloPessoas\Responsavel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ClubeDaLeitura.ConsoleApp.Filho">
-    <Position X="3.25" Y="5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
-      <FileName>2 - ModuloPessoas\Filho.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ClubeDaLeitura.ConsoleApp.RepositorioPessoas">
-    <Position X="5.75" Y="7.75" Width="1.75" />
+  <Class Name="ClubeDaLeitura.ConsoleApp.ModuloPessoas.RepositorioPessoas">
+    <Position X="3.75" Y="1.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>2 - ModuloPessoas\RepositorioPessoas.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ClubeDaLeitura.ConsoleApp.TelaPessoas">
-    <Position X="5.75" Y="4.75" Width="1.5" />
+  <Class Name="ClubeDaLeitura.ConsoleApp.ModuloPessoas.TelaPessoas">
+    <Position X="7" Y="4.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQCAAAAAAAABAAAAAAAAA=</HashCode>
       <FileName>2 - ModuloPessoas\TelaPessoas.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ClubeDaLeitura.ConsoleApp.Revista">
-    <Position X="5.5" Y="1.75" Width="1.5" />
+  <Class Name="ClubeDaLeitura.ConsoleApp.ModuloReservas.RepositorioReservas">
+    <Position X="1.25" Y="1.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>2 - ModuloPessoas\Revista.cs</FileName>
+      <FileName>3 - ModuloReservas\RepositorioReservas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClubeDaLeitura.ConsoleApp.ModuloCaixas.Caixa">
+    <Position X="3.25" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAQSAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>5 - ModuloCaixa\Caixa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClubeDaLeitura.ConsoleApp.Compartilhado.RepositorioBase" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAABAAAAAAAECAQAAAAAACAAAAAAAAAAAAEQAAA=</HashCode>
+      <FileName>1 - Compartilhado\RepositorioBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClubeDaLeitura.ConsoleApp.ModuloEmprestimos.RepositorioEmprestimos">
+    <Position X="6.25" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>6 - ModuloEmprestimo\RepositorioEmprestimos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClubeDaLeitura.ConsoleApp.Compartilhado.Multa" Collapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAEAABAAAAAAAAEAAAAA=</HashCode>
+      <FileName>6 - ModuloEmprestimo\Multa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClubeDaLeitura.ConsoleApp.Compartilhado.RepositorioMulta" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>6 - ModuloEmprestimo\RepositorioMulta.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
