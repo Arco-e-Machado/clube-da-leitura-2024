@@ -26,7 +26,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
             return new Filho(nome, responsavel, telefone, endereco);
         }
 
-        protected override void VisualizarRegistros(bool verTudo)
+        public override void VisualizarRegistros(bool verTudo)
         {
             Console.WriteLine("Visualizando pessoas");
 

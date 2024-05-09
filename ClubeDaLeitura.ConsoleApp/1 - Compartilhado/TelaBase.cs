@@ -73,7 +73,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             ExibirMensagem("Alteração concluida com sucesso", ConsoleColor.Green);
         }
-
+    
         public void Excluir()
         {
             Console.WriteLine($"Excluindo {tipoEntidade}");
@@ -98,7 +98,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
             ExibirMensagem("Remoção concluida com sucesso", ConsoleColor.Green);
         }
 
-        protected abstract void VisualizarRegistros(bool verTudo);
+        public abstract void VisualizarRegistros(bool verTudo);
 
         protected abstract EntidadeBase ObterRegistro();
 
@@ -114,6 +114,5 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             Console.ReadLine();
         }
-
     }
 }

@@ -1,8 +1,9 @@
 ﻿using System.Collections;
+using ClubeDaLeitura.ConsoleApp.Compartilhado;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 {
-    public abstract class Pessoas : EntidadeBase
+    public class Pessoas : EntidadeBase
     {
         public string nome { get; set; }
         public string telefone { get; set; }

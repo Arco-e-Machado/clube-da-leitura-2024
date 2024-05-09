@@ -14,6 +14,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
     internal class TelaCaixa : TelaBase
     {
         public Revista revistas;
+        internal TelaRevista telaRevista;
+        internal RepositorioRevistas repositorioRevistas;
 
         protected override EntidadeBase ObterRegistro()
         {
@@ -35,7 +37,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
             return new Caixa(etiqueta, cor, TDEmprestimo);
         }
 
-        protected override void VisualizarRegistros(bool verTudo)
+        public override void VisualizarRegistros(bool verTudo)
         {
             Console.WriteLine("Visualizando Caixas");
 
@@ -66,6 +68,11 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
             Caixa caixaTeste = new("Terror", "Amarelo", 9);
 
             repositorio.Cadastrar(caixaTeste);
+        }
+
+        internal void VisualizarRevistas()
+        {
+            throw new NotImplementedException();
         }
     }
 }
