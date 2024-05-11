@@ -6,6 +6,7 @@ using ClubeDaLeitura.ConsoleApp.ModuloReservas;
 using ClubeDaLeitura.ConsoleApp.ModuloMultas;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using System.Globalization;
+using ClubeDaLeitura.ConsoleApp.ModuloEmprestimo;
 
 namespace ClubeDaLeitura.ConsoleApp
 {
@@ -24,7 +25,6 @@ namespace ClubeDaLeitura.ConsoleApp
             telaCaixa.tipoEntidade = "Caixa";
             telaCaixa.repositorio = repositorioCaixa;
 
-            RepositorioEmprestimos repositorioEmprestimo = new RepositorioEmprestimos();
 
             RepositorioReservas repositorioReserva = new RepositorioReservas();
 
@@ -32,6 +32,11 @@ namespace ClubeDaLeitura.ConsoleApp
             TelaRevista telaRevista = new TelaRevista();
             telaRevista.tipoEntidade = "Revista";
             telaRevista.repositorio = repositorioRevistas;
+
+            RepositorioEmprestimos repositorioEmprestimo = new RepositorioEmprestimos();
+            TelaEmprestimo telaEmprestimo = new TelaEmprestimo();
+            telaEmprestimo.tipoEntidade = "Emprestimo";
+            telaEmprestimo.repositorio = repositorioEmprestimo;
 
             telaRevista.telaCaixa = telaCaixa;
             telaRevista.repositorioCaixa = repositorioCaixa;
@@ -41,6 +46,8 @@ namespace ClubeDaLeitura.ConsoleApp
 
             telaPessoas.CadastroTeste();
             telaCaixa.CadastroTeste();
+            telaRevista.CadastroTeste();
+            telaEmprestimo.CadastroTeste();
 
             while (true)
             {
@@ -90,20 +97,20 @@ namespace ClubeDaLeitura.ConsoleApp
                         TelaCaixa telaConvertida = (TelaCaixa)tela;
                         telaConvertida.VisualizarRevistas();
                     }
+                }
             }
+            #region estudo
+            //Console.WriteLine("Hello, World!");
+            //Responsavel novoResponsavel = new("Pai do luiz", "Casa do pai do luiz", "48-4848-8844");
+            //Revista novaRevista = new("branca de neve", new DateTime(1997, 07, 02), "6969");
+            //Locador novoLocador = new("Luiz", "Casa do luiz", "49-49499-4949", novoResponsavel.nome);
+
+            //Reservas novaReserva = new(3, novoLocador.nome, novaRevista.titulo);
+
+            //Console.WriteLine($"quantidade dias: {novaReserva.QtDiasReservados}\nNome locador: {novaReserva.nomeFilho}\nTitulo revista: {novaReserva.nomeRevista}");
+            #endregion
+
         }
-        #region estudo
-        //Console.WriteLine("Hello, World!");
-        //Responsavel novoResponsavel = new("Pai do luiz", "Casa do pai do luiz", "48-4848-8844");
-        //Revista novaRevista = new("branca de neve", new DateTime(1997, 07, 02), "6969");
-        //Locador novoLocador = new("Luiz", "Casa do luiz", "49-49499-4949", novoResponsavel.nome);
-
-        //Reservas novaReserva = new(3, novoLocador.nome, novaRevista.titulo);
-
-        //Console.WriteLine($"quantidade dias: {novaReserva.QtDiasReservados}\nNome locador: {novaReserva.nomeFilho}\nTitulo revista: {novaReserva.nomeRevista}");
-        #endregion
-
-    }
         public static T Input<T>(string texto)
         {
             Console.Write(texto); // Não esquecer de colocar \n no fim;

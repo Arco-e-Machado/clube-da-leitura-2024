@@ -1,25 +1,33 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloPessoas;
+using ClubeDaLeitura.ConsoleApp.ModuloRevistas;
 
 
 namespace ClubeDaLeitura.ConsoleApp
 {
-    public abstract class Multa : EntidadeBase
+    public class Multa : EntidadeBase
     {
         public int dias { get; set; }
-        public int valor { get; set; }
-        public int revista { get; set; }
-        public ModuloPessoas.Amigo filho { get; set; }
+        public double valor { get; set; }
+        public string revista { get; set; }
+        public string filho { get; set; }
 
-        public Multa(int dias, int valor, int revista, ModuloPessoas.Amigo filho)
+        public Multa(int dias, string revista, string filho)
         {
-            dias = dias;
-            valor = valor;
-            revista = revista;
-            filho = filho;
+            this.dias = dias;
+            this.valor = ((3 * 27) / .555);
+            this.revista = revista;
+            this.filho = filho;
+        }
+
+        public override ArrayList Validar()
+        {
+            throw new NotImplementedException();
         }
 
         public override void AtualizarRegistro(EntidadeBase novoegistro)

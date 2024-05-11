@@ -22,6 +22,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
         {
             this.titulo = titulo;
             this.dataDeEdicao = dataDeEdicao;
+            this.repositorio = repositorio;
             this.numeroDeEdicao = numeroDeEdicao;
         }
         public override ArrayList Validar()

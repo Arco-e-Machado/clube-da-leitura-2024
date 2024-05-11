@@ -1,11 +1,12 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloPessoas;
 using ClubeDaLeitura.ConsoleApp.ModuloRevistas;
+using System.Collections;
 
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimos
 {
-    public abstract class Emprestimo : EntidadeBase
+    public class Emprestimo : EntidadeBase
     {
         public Amigo filho { get; set; }
         public Revista revista { get; set; }
@@ -31,6 +32,11 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimos
             dataEmprestimo = registroNovo.dataEmprestimo;
             dataDevolucao = registroNovo.dataDevolucao;
             statusEmprestimo = registroNovo.statusEmprestimo;
+        }
+
+        public override ArrayList Validar()
+        {
+            throw new NotImplementedException();
         }
     }
 }

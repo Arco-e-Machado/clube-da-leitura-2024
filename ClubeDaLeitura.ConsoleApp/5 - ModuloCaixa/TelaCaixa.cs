@@ -28,9 +28,6 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
             Console.WriteLine("Por favor, informe o tempo de empréstimo para os livros contidos na caixa");
             int TDEmprestimo= Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Por favor, informe o ID da caixa");
-            int idRepositorio = Convert.ToInt32(Console.ReadLine());
-            //RepositorioCaixa repositorioDasCaixas= (RepositorioCaixa)repositorio.SelecionaPorId(idRepositorio);
 
             bool status = false;
 
@@ -54,9 +51,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
             {
                 Console.WriteLine(
                "{0, -10} | {1, -15} | {2, -20} | {3, -15}",
-                caixa._ID, caixa.etiqueta, caixa.cor,
-                caixa.tempoDeEmprestimo
-              );
+                caixa._ID, caixa.etiqueta, caixa.cor, caixa.tempoDeEmprestimo);
             }
 
             Console.ReadLine();
@@ -65,9 +60,15 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
 
         internal void CadastroTeste()
         {
-            Caixa caixaTeste = new("Terror", "Amarelo", 9);
+            Caixa caixaTeste = new("Terror", "Amarelo", 3);
+            Caixa caixaTeste1 = new("Comedia", "Preto", 4);
+            Caixa caixaTeste2 = new("Drama", "Azul", 1);
+            Caixa caixaTeste3 = new("Suspense", "Vermelho", 3);
 
             repositorio.Cadastrar(caixaTeste);
+            repositorio.Cadastrar(caixaTeste1);
+            repositorio.Cadastrar(caixaTeste2);
+            repositorio.Cadastrar(caixaTeste3);
         }
 
         internal void VisualizarRevistas()

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixas;
+using ClubeDaLeitura.ConsoleApp.ModuloRevistas;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
 {
@@ -44,6 +45,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
             this.etiqueta = registroNovo.etiqueta;
             this.cor = registroNovo.cor;
             this.tempoDeEmprestimo = registroNovo.tempoDeEmprestimo;
+        }
+
+        public void GuardarRevista(Revista revista)
+        {
+
+            Revistas.Add(revista);
         }
     }
 }

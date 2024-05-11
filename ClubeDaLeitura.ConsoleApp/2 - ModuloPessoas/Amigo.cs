@@ -7,9 +7,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
     {
         public string responsavel { get; set; }
 
-        public string nome { get; set; }
-        public string endereco { get; set; }
-        public string telefone { get; set; }
+        public ArrayList multas { get; set; } = new ArrayList();
 
         public Amigo(string nome, string responsavel, string endereco, string telefone) : base(nome, endereco, telefone)
         {
@@ -18,6 +16,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
             this.endereco = endereco;
             this.telefone = telefone;
         }
+
 
         public override ArrayList Validar()
         {
