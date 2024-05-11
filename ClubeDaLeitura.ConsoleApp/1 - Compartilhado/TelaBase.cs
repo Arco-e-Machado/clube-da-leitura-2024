@@ -16,7 +16,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
             Console.Clear();
 
             Console.WriteLine("----------------------------------------");
-            Console.WriteLine($"        Gestão de {tipoEntidade}s        ");
+            Console.WriteLine($"|       Gestão de {tipoEntidade}s       ");
             Console.WriteLine("----------------------------------------");
 
             Console.WriteLine();
@@ -38,7 +38,9 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
         public virtual void Registrar()
         {
-            Console.WriteLine($"Cadastrando{tipoEntidade}");
+            ApresentarCabeçalho();
+
+            Console.WriteLine($"Cadastrando {tipoEntidade}...");
 
             Console.WriteLine("");
 
@@ -46,18 +48,20 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             repositorio.Cadastrar(entidade);
 
-            ExibirMensagem($"o {tipoEntidade} foi cadastrado com Sucesso", ConsoleColor.Green);
+            ExibirMensagem($"O {tipoEntidade} foi cadastrado com Sucesso", ConsoleColor.Green);
         }
 
         public void Editar()
         {
-            Console.WriteLine($"Editando {tipoEntidade}");
+            ApresentarCabeçalho();
+
+            Console.WriteLine($"Editando {tipoEntidade}...");
 
             Console.WriteLine("");
 
             VisualizarRegistros(false);
 
-            Console.WriteLine($"informe o ID do {tipoEntidade} a ser editado");
+            Console.WriteLine($"Informe o ID do {tipoEntidade} a ser editado");
             int idEscolhido = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("");
@@ -68,21 +72,23 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             if (!consegueEditar)
             {
-                ExibirMensagem("Não foi possivel editar", ConsoleColor.Red);
+                ExibirMensagem("Não foi possivel editar!", ConsoleColor.Red);
             }
 
-            ExibirMensagem("Alteração concluida com sucesso", ConsoleColor.Green);
+            ExibirMensagem("Alteração concluida com sucesso!", ConsoleColor.Green);
         }
     
         public void Excluir()
         {
-            Console.WriteLine($"Excluindo {tipoEntidade}");
+            ApresentarCabeçalho();
+
+            Console.WriteLine($"Excluindo {tipoEntidade}...");
 
             Console.WriteLine("");
 
             VisualizarRegistros(false);
 
-            Console.WriteLine($"informe o ID do {tipoEntidade} a ser excluido");
+            Console.WriteLine($"Informe o ID do {tipoEntidade} a ser excluido:");
             int idEscolhido = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("");
@@ -113,6 +119,17 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
             Console.ResetColor();
 
             Console.ReadLine();
+        }
+
+        public void ApresentarCabeçalho()
+        {
+            Console.Clear();
+
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"|       Gestão de {tipoEntidade}s       ");
+            Console.WriteLine("----------------------------------------");
+
+            Console.WriteLine();
         }
     }
 }

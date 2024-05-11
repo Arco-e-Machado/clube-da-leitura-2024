@@ -16,7 +16,7 @@ namespace ClubeDaLeitura.ConsoleApp
         {
             RepositorioPessoas repositorioPessoas = new RepositorioPessoas();
             TelaPessoas telaPessoas = new TelaPessoas();
-            telaPessoas.tipoEntidade = "Pessoas";
+            telaPessoas.tipoEntidade = "Pessoa";
             telaPessoas.repositorio = repositorioPessoas;
 
             RepositorioCaixa repositorioCaixa = new RepositorioCaixa();
@@ -106,7 +106,7 @@ namespace ClubeDaLeitura.ConsoleApp
     }
         public static T Input<T>(string texto)
         {
-            Console.Write(texto); // Não esquecer de colocar \n no fim;
+            Console.Write(texto);
 
             string input = Console.ReadLine().ToLower();
 

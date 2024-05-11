@@ -30,7 +30,6 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
 
             Console.WriteLine("Por favor, informe o ID da caixa");
             int idRepositorio = Convert.ToInt32(Console.ReadLine());
-            //RepositorioCaixa repositorioDasCaixas= (RepositorioCaixa)repositorio.SelecionaPorId(idRepositorio);
 
             bool status = false;
 
@@ -39,7 +38,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
 
         public override void VisualizarRegistros(bool verTudo)
         {
-            Console.WriteLine("Visualizando Caixas");
+            Console.WriteLine("\nVisualizando Caixas...");
 
             Console.WriteLine();
 

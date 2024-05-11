@@ -20,20 +20,23 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
         {
             Console.WriteLine("Por favor, informe o titulo da revista");
             string titulo = Convert.ToString(Console.ReadLine());
-
+            
             Console.WriteLine("Por favor, informe o número de edição da revista");
             int numeroDeEdicao = Convert.ToInt32(Console.ReadLine());
 
+            
             DateTime dataDeEdicao = Program.Input<DateTime>("Por favor, informe o ano de publicação da revista\n");
+
 
             Console.WriteLine("Por favor, informe o ID da caixa");
             int idCaixa = Convert.ToInt32(Console.ReadLine());
-            Caixa repositorioRevista = (ModuloCaixas.Caixa)repositorio.SelecionaPorId(idCaixa);
+            Caixa caixa = (ModuloCaixas.Caixa)repositorioCaixa.SelecionaPorId(idCaixa);
 
             bool status = false;
+
             
 
-            return new Revista(titulo, numeroDeEdicao, repositorioRevista, dataDeEdicao, status);
+            return new Revista(titulo, numeroDeEdicao, caixa, dataDeEdicao, status);
         }
 
         public override void VisualizarRegistros(bool verTudo)
@@ -44,7 +47,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
 
             Console.WriteLine(
              "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -15}",
-             "Id", "Titulo", "Numero da Edicao", "Ano", "Caixa", "Emprestada ?"
+             "Id", "Titulo", "Numero da Edicao", "Ano", "caixa", "Emprestada ?"
          );
 
             ArrayList revistasCadastradas = repositorio.PegaRegistros();
@@ -54,7 +57,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
                 Console.WriteLine(
                "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -15}",
                 revista._ID, revista.titulo, revista.numeroDeEdicao,
-                revista.dataDeEdicao, revista.repositorio, revista.status
+                revista.dataDeEdicao.ToString("d"), revista.caixa._ID, revista.status
               );
             }
 

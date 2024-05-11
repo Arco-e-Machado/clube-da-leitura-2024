@@ -5,18 +5,17 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 {
     public class Amigo : Pessoas
     {
-        public string responsavel { get; set; }
-
         public string nome { get; set; }
-        public string endereco { get; set; }
+        public string responsavel { get; set; }
         public string telefone { get; set; }
+        public string endereco { get; set; }
 
-        public Amigo(string nome, string responsavel, string endereco, string telefone) : base(nome, endereco, telefone)
+        public Amigo(string nome, string responsavel, string telefone, string endereco) : base(nome, telefone, endereco)
         {
             this.nome = nome;
             this.responsavel = responsavel;
-            this.endereco = endereco;
             this.telefone = telefone;
+            this.endereco = endereco;
         }
 
         public override ArrayList Validar()
