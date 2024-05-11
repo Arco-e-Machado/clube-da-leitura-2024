@@ -13,7 +13,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
             Console.Clear();
 
             Console.WriteLine("----------------------------------------");
-            Console.WriteLine("|             Clube da Leitura                  |");
+            Console.WriteLine("|           Clube da Leitura           |");
             Console.WriteLine("----------------------------------------");
 
             Console.WriteLine();

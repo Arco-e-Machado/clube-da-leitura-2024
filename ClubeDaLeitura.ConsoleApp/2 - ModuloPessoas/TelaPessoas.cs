@@ -28,13 +28,13 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 
         public override void VisualizarRegistros(bool verTudo)
         {
-            Console.WriteLine("Visualizando pessoas");
+            Console.WriteLine("Visualizando pessoas:");
 
             Console.WriteLine();
 
             Console.WriteLine(
                 "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20}",
-                "Id", "Nome", "Responsavel", "Telefone", "Endereco"
+                "Id", "Nome", "Responsavel", "Telefone", "Endereço"
             );
 
             ArrayList pessoasCadastradas = repositorio.PegaRegistros();
@@ -53,7 +53,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 
         public void CadastroTeste()
         {
-            Amigo novoFilhoTeste = new Amigo("leo filho", "leo responsável", "Duarte da costa", "4002-8922");
+            Amigo novoFilhoTeste = new Amigo("leo filho", "leo responsável","4002-8922", "Casa do leo");
 
             repositorio.Cadastrar(novoFilhoTeste);
         }

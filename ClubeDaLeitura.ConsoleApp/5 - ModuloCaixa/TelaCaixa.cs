@@ -36,7 +36,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
 
         public override void VisualizarRegistros(bool verTudo)
         {
-            Console.WriteLine("Visualizando Caixas");
+            Console.WriteLine("\nVisualizando Caixas...");
 
             Console.WriteLine();
 

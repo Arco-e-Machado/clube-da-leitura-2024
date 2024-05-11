@@ -9,12 +9,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 
         public ArrayList multas { get; set; } = new ArrayList();
 
-        public Amigo(string nome, string responsavel, string endereco, string telefone) : base(nome, endereco, telefone)
+        public Amigo(string nome, string responsavel, string telefone, string endereco) : base(nome, telefone, endereco)
         {
             this.nome = nome;
             this.responsavel = responsavel;
-            this.endereco = endereco;
             this.telefone = telefone;
+            this.endereco = endereco;
         }
 
 
