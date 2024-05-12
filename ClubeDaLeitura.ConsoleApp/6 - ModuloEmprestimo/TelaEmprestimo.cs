@@ -1,4 +1,4 @@
-﻿using ClubeDaLeitura.ConsoleApp._7___Multa;
+﻿using ClubeDaLeitura.ConsoleApp.ModuloMultas;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixas;
 using ClubeDaLeitura.ConsoleApp.ModuloEmprestimos;
@@ -20,8 +20,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
         public TelaRevista telaRevista = null;
         public TelaMulta telaMulta = null;
 
-        public RepositorioPessoas repositorioPessoas = null;
-        public RepositorioRevistas repositorioRevistas = null;
+        public RepositorioPessoas repositorioPessoas= new();
+        public RepositorioRevistas repositorioRevistas = new RepositorioRevistas();
         public RepositorioMulta repositorioMulta = null;
 
         protected override EntidadeBase ObterRegistro()
@@ -39,12 +39,13 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             int idRevista = Convert.ToInt32(Console.ReadLine());
             Revista revistaSelecionada = (Revista)repositorioRevistas.SelecionaPorId(idRevista);
 
+            DateTime diaEmprestimo = DateTime.Now;
 
-            DateTime dataDevolucao = DateTime.Now.AddDays(telaRevista.EscolherCaixaRevistas(idRevista));
+            DateTime dataDevolucao = diaEmprestimo.AddDays(telaRevista.EscolherCaixaRevistas(idRevista));
 
             bool status = true;
 
-            Emprestimo novoEmprestimo = new(amigoSelecionado, revistaSelecionada, new DateTime(2000, 2, 12), dataDevolucao, status);
+            Emprestimo novoEmprestimo = new(amigoSelecionado, revistaSelecionada, diaEmprestimo, dataDevolucao, status);
 
             return novoEmprestimo;
         }
@@ -78,7 +79,50 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             Console.ReadLine();
             Console.WriteLine();
         }
-       
+
+        public bool VerificaAtraso(int idEmprestimo)
+        {
+            bool status = false;
+            ArrayList emprestimosCadastrados = repositorio.PegaRegistros();
+
+            foreach (Emprestimo emprestimo in emprestimosCadastrados)
+            {
+                TimeSpan tempoDecorrido = emprestimo.dataEmprestimo - DateTime.Now;
+                int valorDaMulta = 5 * tempoDecorrido.Days;
+                if (emprestimo._ID != idEmprestimo)
+                    continue;
+                else
+                {
+                    if (emprestimo.dataEmprestimo < DateTime.Now)
+                    {
+                        emprestimo.statusEmprestimo = true;
+                        Multa novaMulta = telaMulta.GeraMulta(valorDaMulta, emprestimo.revista.titulo, emprestimo.filho.nome);
+
+                        emprestimo.filho.ReceberMulta(novaMulta);
+                    }
+                    else
+                    {
+                        emprestimo.statusEmprestimo = false;
+                    }
+
+                    break;
+                }
+            }
+            return status;
+        }
+
+        public void FinalizarEmprestimo()
+        {
+            VisualizarRegistros(true);
+            Console.WriteLine("Digite o ID do Emprestimo desejado");
+            int idEmprestimo = Convert.ToInt32(Console.ReadLine());
+            Emprestimo emprestimoSelecionado = (Emprestimo)repositorio.SelecionaPorId(idEmprestimo);
+
+            VerificaAtraso(idEmprestimo);
+
+            ExibirMensagem("Emprestimo finalizado", ConsoleColor.Red);
+
+        }
 
         public override char ApresentarMenu()
         {
@@ -107,13 +151,13 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
         }
         internal void CadastroTeste()
         {
-            Amigo AmigoEmprestimo = (Amigo)repositorioPessoas.SelecionaPorId(0);
-            Revista RevistaEmprestimo = (Revista)repositorioRevistas.SelecionaPorId(0);
-            //DateTime dataDeEmprestimo = Convert.ToDateTime("12/12/2002");
-            DateTime dataDeDevolucao = DateTime.Now.AddDays(telaRevista.EscolherCaixaRevistas(0));
+            Amigo AmigoEmprestimo = (Amigo)repositorioPessoas.SelecionaPorId(1);
+            Revista RevistaEmprestimo = (Revista)repositorioRevistas.SelecionaPorId(1);
+            DateTime dataDeDevolucao = DateTime.Now.AddDays(telaRevista.EscolherCaixaRevistas(1));
             Emprestimo novoEmprestimo = new Emprestimo(AmigoEmprestimo, RevistaEmprestimo, DateTime.Now, dataDeDevolucao, true);
 
             repositorio.Cadastrar(novoEmprestimo);
+
         }
 
     }

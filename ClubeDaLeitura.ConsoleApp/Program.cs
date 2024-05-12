@@ -7,6 +7,7 @@ using ClubeDaLeitura.ConsoleApp.ModuloMultas;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using System.Globalization;
 using ClubeDaLeitura.ConsoleApp.ModuloEmprestimo;
+using ClubeDaLeitura.ConsoleApp._3___ModuloReservas;
 
 namespace ClubeDaLeitura.ConsoleApp
 {
@@ -20,6 +21,11 @@ namespace ClubeDaLeitura.ConsoleApp
             telaPessoas.tipoEntidade = "Pessoa";
             telaPessoas.repositorio = repositorioPessoas;
 
+            RepositorioMulta repositorioMulta = new RepositorioMulta();
+            TelaMulta telaMulta = new TelaMulta();
+            telaMulta.tipoEntidade = "Multa";
+            telaMulta.repositorio = repositorioMulta;
+
             RepositorioCaixa repositorioCaixa = new RepositorioCaixa();
             TelaCaixa telaCaixa = new TelaCaixa();
             telaCaixa.tipoEntidade = "Caixa";
@@ -27,6 +33,10 @@ namespace ClubeDaLeitura.ConsoleApp
 
 
             RepositorioReservas repositorioReserva = new RepositorioReservas();
+            TelaReserva telaReserva = new TelaReserva();
+            telaReserva.tipoEntidade = "Reserva";
+            telaReserva.repositorio = repositorioReserva;
+
 
             RepositorioRevistas repositorioRevistas = new RepositorioRevistas();
             TelaRevista telaRevista = new TelaRevista();
@@ -43,6 +53,14 @@ namespace ClubeDaLeitura.ConsoleApp
 
             telaCaixa.telaRevista = telaRevista;
             telaCaixa.repositorioRevistas = repositorioRevistas;
+
+            telaEmprestimo.telaPessoas = telaPessoas;
+            telaEmprestimo.telaRevista = telaRevista;
+            telaEmprestimo.telaMulta = telaMulta;
+
+            telaEmprestimo.repositorioPessoas = repositorioPessoas;
+            telaEmprestimo.repositorioRevistas = repositorioRevistas;
+            telaEmprestimo.repositorioMulta = repositorioMulta;
 
             telaPessoas.CadastroTeste();
             telaCaixa.CadastroTeste();
@@ -64,11 +82,11 @@ namespace ClubeDaLeitura.ConsoleApp
                 else if (opcaoPrincipalEscolhida == '2')
                     tela = telaCaixa;
 
-                //else if (opcaoPrincipalEscolhida == '3')
-                //    tela = telaEmprestimo;
+                else if (opcaoPrincipalEscolhida == '3')
+                    tela = telaEmprestimo;
 
-                //else if (opcaoPrincipalEscolhida == '4')
-                //    tela = telaReserva;
+                else if (opcaoPrincipalEscolhida == '4')
+                    tela = telaReserva;
 
                 else if (opcaoPrincipalEscolhida == '5')
                     tela = telaRevista;

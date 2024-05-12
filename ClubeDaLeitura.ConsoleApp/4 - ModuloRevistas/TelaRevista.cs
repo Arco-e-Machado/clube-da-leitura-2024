@@ -55,7 +55,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
             {
                 Console.WriteLine(
                "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -15}",
-                revista._ID, revista.titulo, revista.numeroDeEdicao,revista.dataDeEdicao, revista.repositorio.etiqueta, revista.status
+                revista._ID, revista.titulo, revista.numeroDeEdicao,revista.dataDeEdicao.ToShortDateString(), revista.repositorio.etiqueta, revista.status
               );
             }
 
@@ -65,7 +65,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
 
         public int EscolherCaixaRevistas(int idRevista)
         {
-            int tempoDeEmprestimo = 0;
+            int tempoEmprestimo = 0;
             ArrayList revistasCadastradas = repositorio.PegaRegistros();
             foreach (Revista revista in revistasCadastradas)
             {
@@ -73,11 +73,11 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
                     continue;
                 else
                 {
-                    tempoDeEmprestimo = revista.repositorio.tempoDeEmprestimo;
+                    tempoEmprestimo = revista.repositorio.tempoDeEmprestimo;
                     break;
                 }
             }
-            return tempoDeEmprestimo;
+            return tempoEmprestimo;
         }
 
         public void CadastroTeste()

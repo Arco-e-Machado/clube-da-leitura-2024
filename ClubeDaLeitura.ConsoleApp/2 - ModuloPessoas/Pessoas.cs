@@ -8,6 +8,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
         public string nome { get; set; }
         public string telefone { get; set; }
         public string endereco { get; set; }
+        public ArrayList multas { get; set; } = new ArrayList();
 
         public Pessoas(string nome, string endereco, string telefone)
         {
@@ -39,6 +40,11 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
             this.nome = registroNovo.nome;
             this.telefone = registroNovo.telefone;
             this.endereco = registroNovo.endereco;
+        }
+
+        internal void ReceberMulta(Multa novaMulta)
+        {
+            multas.Add(novaMulta);
         }
     }
 }

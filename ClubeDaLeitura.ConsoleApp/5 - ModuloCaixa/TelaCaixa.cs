@@ -60,10 +60,10 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
 
         internal void CadastroTeste()
         {
-            Caixa caixaTeste = new("Terror", "Amarelo", 3);
-            Caixa caixaTeste1 = new("Comedia", "Preto", 4);
-            Caixa caixaTeste2 = new("Drama", "Azul", 1);
-            Caixa caixaTeste3 = new("Suspense", "Vermelho", 3);
+            Caixa caixaTeste = new("Terror", "Amarelo", 2);
+            Caixa caixaTeste1 = new("Comedia", "Preto", 3);
+            Caixa caixaTeste2 = new("Drama", "Azul", 4);
+            Caixa caixaTeste3 = new("Suspense", "Vermelho", 5);
 
             repositorio.Cadastrar(caixaTeste);
             repositorio.Cadastrar(caixaTeste1);
