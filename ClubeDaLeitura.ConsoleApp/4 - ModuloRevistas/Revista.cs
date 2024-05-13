@@ -24,7 +24,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
             this.dataDeEdicao = dataDeEdicao;
             this.repositorio = repositorio;
             this.numeroDeEdicao = numeroDeEdicao;
-            this.status = 
+            this.status = status;
+            repositorio.GuardarRevista(this);
         }
         public override ArrayList Validar()
         {
@@ -42,7 +43,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
             return erros;
         }
 
-        public bool VerificarDisponibilidade()
+        public string ConverterString(bool status)
+        {
+            if (status == true)
+                return "Indisponivel";
+            return "Disponível";
+        }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {

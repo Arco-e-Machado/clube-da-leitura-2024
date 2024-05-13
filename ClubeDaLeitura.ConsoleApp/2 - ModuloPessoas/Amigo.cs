@@ -7,7 +7,6 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
     {
         public string responsavel { get; set; }
 
-
         public Amigo(string nome, string responsavel, string telefone, string endereco) : base(nome, telefone, endereco)
         {
             this.nome = nome;

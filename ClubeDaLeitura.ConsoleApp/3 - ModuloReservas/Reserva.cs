@@ -21,8 +21,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
             this.revista = revista;
             this.dataReserva = dataReserva;
             this.fimReserva = fimReserva;
-            filho = filho;
-            statusReserva = statusReserva;
+            this.filho = filho;
+            this.statusReserva = statusReserva;
         }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)

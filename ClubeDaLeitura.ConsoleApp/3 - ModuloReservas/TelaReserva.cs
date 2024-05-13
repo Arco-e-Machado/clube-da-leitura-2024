@@ -9,15 +9,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClubeDaLeitura.ConsoleApp._3___ModuloReservas
+namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
 {
     internal class TelaReserva : TelaBase
     {
-        public TelaRevista telaRevista;
-        public RepositorioRevistas repositorioRevista;
+        public Revista revista;
+        public TelaRevista telaRevista = null;
+        public RepositorioRevistas repositorioRevista = null;
 
-        public TelaPessoas telaPessoas;
-        public RepositorioPessoas repositorioPessoas;
+        public TelaPessoas telaPessoas = null;
+        public RepositorioPessoas repositorioPessoas = null;
 
         public override void VisualizarRegistros(bool verTudo)
         {
@@ -27,7 +28,7 @@ namespace ClubeDaLeitura.ConsoleApp._3___ModuloReservas
 
             Console.WriteLine(
            "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -20}",
-           "Id", "Revista", "Data da reserva", "Amigo", "Status da reserva, Data Limite"
+           "Id", "Revista", "Data da reserva", "Amigo", "Status da reserva", "Data Limite"
        );
 
             ArrayList reservasCadastradas = repositorio.PegaRegistros();
@@ -36,12 +37,11 @@ namespace ClubeDaLeitura.ConsoleApp._3___ModuloReservas
             {
                 Console.WriteLine(
                "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -20}",
-                reserva._ID, reserva.revista.titulo, reserva.dataReserva.ToShortTimeString(),
-                reserva.filho.nome, reserva.statusReserva, reserva.fimReserva.ToShortTimeString()
+                reserva._ID, reserva.revista.titulo, reserva.dataReserva.ToShortDateString(), reserva.filho.nome, revista.ConverterString(reserva.statusReserva), reserva.fimReserva.ToShortDateString()
               );
             }
 
-            Console.ReadLine();
+            Console.ReadKey();
             Console.WriteLine();
         }
 
@@ -49,21 +49,33 @@ namespace ClubeDaLeitura.ConsoleApp._3___ModuloReservas
         {
             telaRevista.VisualizarRegistros(false);
             Console.WriteLine();
-            Console.WriteLine("Por favor, informe o ID da REVISTA a ser retirada");
-            int idRevista = Convert.ToInt32(Console.ReadLine());
+            int idRevista = Program.Input<int>("Por favor, informe o ID da revista a ser retirada:\n");
             Revista revistaSelecionada = (Revista)repositorioRevista.SelecionaPorId(idRevista);
+            VerificarDisponibilidade(ref idRevista, ref revistaSelecionada);
+
             revistaSelecionada.status = true;
 
             telaPessoas.VisualizarRegistros(false);
             Console.WriteLine();
-            Console.WriteLine("Por favor, informe o ID do AMIGO que vai retirar a REVISTA");
-            int idAmigo = Convert.ToInt32(Console.ReadLine());
+            int idAmigo = Program.Input<int>("Por favor, informe o ID do amigo que vai retirar a revista:\n");
             Amigo amigoSelecionado = (Amigo)repositorioPessoas.SelecionaPorId(idAmigo);
 
-            DateTime fimReserva = DateTime.Now.AddDays(2);
+            int diasMaximosParaReserva = 2;
+
+            DateTime fimReserva = DateTime.Now.AddDays(diasMaximosParaReserva);
             bool status = false;
 
             return new Reserva(revistaSelecionada, DateTime.Now, fimReserva, amigoSelecionado, status);
+        }
+
+        private void VerificarDisponibilidade(ref int idRevista, ref Revista revistaSelecionada)
+        {
+            while (!revistaSelecionada.status == false)
+            {
+                Console.WriteLine("A revista não está disponível!");
+                idRevista = Program.Input<int>("Por favor, informe o ID da revista a ser retirada:\n");
+                revistaSelecionada = (Revista)repositorioRevista.SelecionaPorId(idRevista);
+            }
         }
     }
 

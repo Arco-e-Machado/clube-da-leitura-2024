@@ -18,18 +18,14 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
 
         protected override EntidadeBase ObterRegistro()
         {
-            Console.WriteLine("Por favor, informe o titulo da revista");
-            string titulo = Convert.ToString(Console.ReadLine());
-            
-            Console.WriteLine("Por favor, informe o número de edição da revista");
-            int numeroDeEdicao = Convert.ToInt32(Console.ReadLine());
+            string titulo = Program.Input<string>("Por favor, informe o titulo da revista:\n");
 
-            
-            DateTime dataDeEdicao = Program.Input<DateTime>("Por favor, informe o ano de publicação da revista\n");
+            int numeroDeEdicao = Program.Input<int>("Por favor, informe o número de edição da revista:\n");
+
+            DateTime dataDeEdicao = Program.Input<DateTime>("Por favor, informe o ano de publicação da revista:\n");
 
 
-            Console.WriteLine("Por favor, informe o ID da caixa");
-            int idCaixa = Convert.ToInt32(Console.ReadLine());
+            int idCaixa = Program.Input<int>("Por favor, informe o ID da caixa");
             Caixa repositorioRevista = (Caixa)repositorioCaixa.SelecionaPorId(idCaixa);
 
             bool status = false;
@@ -45,8 +41,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
             Console.WriteLine();
 
             Console.WriteLine(
-             "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -15}",
-             "Id", "Titulo", "Numero da Edicao", "Ano", "caixa", "Emprestada ?"
+               "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -10 } | {5, -20} | {6, -15}",
+             "Id", "Titulo", "Numero da Edicao", "Ano", "Id Caixa", "caixa", "Status da revista"
          );
 
             ArrayList revistasCadastradas = repositorio.PegaRegistros();
@@ -54,8 +50,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
             foreach (Revista revista in revistasCadastradas)
             {
                 Console.WriteLine(
-               "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -15}",
-                revista._ID, revista.titulo, revista.numeroDeEdicao,revista.dataDeEdicao.ToShortDateString(), revista.repositorio.etiqueta, revista.status
+               "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -10 } | {5, -20} | {6, -15}",
+                revista._ID, revista.titulo, revista.numeroDeEdicao, revista.dataDeEdicao.ToShortDateString(), revista.repositorio._ID, revista.repositorio.etiqueta, revista.ConverterString(revista.status)
               );
             }
 
@@ -83,10 +79,22 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
         public void CadastroTeste()
         {
             Caixa caixa = (Caixa)repositorioCaixa.SelecionaPorId(1);
-            Revista revistaTeste = new Revista("Batima", 7, caixa, new DateTime(1997, 07, 02), false);
+            Revista revistaTeste = new Revista("Batman", 7, caixa, new DateTime(1997, 07, 02), false);
+
+            Caixa caixa2 = (Caixa)repositorioCaixa.SelecionaPorId(2);
+            Revista revistaTeste2 = new Revista("Branca de neve", 7, caixa2, new DateTime(1899, 02, 22), false);
+
+            Caixa caixa3 = (Caixa)repositorioCaixa.SelecionaPorId(3);
+            Revista revistaTeste3 = new Revista("Berserker", 7, caixa3, new DateTime(2005, 11, 20), false);
+
+            Caixa caixa4 = (Caixa)repositorioCaixa.SelecionaPorId(4);
+            Revista revistaTeste4 = new Revista("Ragnarok", 7, caixa4, new DateTime(1999, 10, 22), false);
 
 
             repositorio.Cadastrar(revistaTeste);
+            repositorio.Cadastrar(revistaTeste2);
+            repositorio.Cadastrar(revistaTeste3);
+            repositorio.Cadastrar(revistaTeste4);
         }
     }
 }

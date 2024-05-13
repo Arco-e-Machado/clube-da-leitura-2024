@@ -19,14 +19,11 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
 
         protected override EntidadeBase ObterRegistro()
         {
-            Console.WriteLine("Por favor, informe o etiqueta da caixa");
-            string etiqueta = Convert.ToString(Console.ReadLine());
+            string etiqueta = Program.Input<string>("Por favor, informe o etiqueta da caixa:\n");
 
-            Console.WriteLine("Por favor, informe o cor da caixa");
-            string cor = Convert.ToString(Console.ReadLine());
+            string cor = Program.Input<string>("Por favor, informe o cor da caixa:\n");
 
-            Console.WriteLine("Por favor, informe o tempo de empréstimo para os livros contidos na caixa");
-            int TDEmprestimo= Convert.ToInt32(Console.ReadLine());
+            int TDEmprestimo = Program.Input<int>("Por favor, informe o tempo de empréstimo para os livros contidos na caixa:\n");
 
 
             bool status = false;
@@ -41,17 +38,17 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
             Console.WriteLine();
 
             Console.WriteLine(
-             "{0, -10} | {1, -15} | {2, -20} | {3, -15}",
-             "Id", "Etiqueta", "Cor", "Tempo De Emprestimo"
+             "{0, -10} | {1, -15} | {2, -20} | {3, -20} | {4, -15}",
+             "Id", "Etiqueta", "Cor", "Dias de Emprestimo","Livros contidos"
          );
 
-            ArrayList caixasCadastradas= repositorio.PegaRegistros();
+            ArrayList caixasCadastradas = repositorio.PegaRegistros();
 
             foreach (Caixa caixa in caixasCadastradas)
             {
                 Console.WriteLine(
-               "{0, -10} | {1, -15} | {2, -20} | {3, -15}",
-                caixa._ID, caixa.etiqueta, caixa.cor, caixa.tempoDeEmprestimo);
+               "{0, -10} | {1, -15} | {2, -20} | {3, -20} | {4, -15}",
+                caixa._ID, caixa.etiqueta, caixa.cor, caixa.tempoDeEmprestimo, caixa.Revistas.Count);
             }
 
             Console.ReadLine();

@@ -30,8 +30,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             Console.WriteLine();
 
-            Console.Write("Escolha uma das opções: ");
-            char operacaoEscolhida = Convert.ToChar(Console.ReadLine());
+            char operacaoEscolhida = Program.Input<char>("Escolha uma das opções: ");
 
             return operacaoEscolhida;
         }
@@ -61,8 +60,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             VisualizarRegistros(false);
 
-            Console.WriteLine($"Informe o ID do {tipoEntidade} a ser editado");
-            int idEscolhido = Convert.ToInt32(Console.ReadLine());
+            int idEscolhido = Program.Input<int>($"Informe o ID do {tipoEntidade} a ser editado\n");
 
             Console.WriteLine("");
 
@@ -88,8 +86,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             VisualizarRegistros(false);
 
-            Console.WriteLine($"Informe o ID do {tipoEntidade} a ser excluido:");
-            int idEscolhido = Convert.ToInt32(Console.ReadLine());
+            int idEscolhido = Program.Input<int>($"Informe o ID do {tipoEntidade} a ser excluido:\n");
 
             Console.WriteLine("");
 
@@ -118,7 +115,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             Console.ResetColor();
 
-            Console.ReadLine();
+            Console.ReadKey();
         }
 
         public void ApresentarCabeçalho()

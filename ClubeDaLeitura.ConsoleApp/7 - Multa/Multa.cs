@@ -8,7 +8,7 @@ using ClubeDaLeitura.ConsoleApp.ModuloPessoas;
 using ClubeDaLeitura.ConsoleApp.ModuloRevistas;
 
 
-namespace ClubeDaLeitura.ConsoleApp
+namespace ClubeDaLeitura.ConsoleApp.ModuloMultas
 {
     public class Multa : EntidadeBase
     {

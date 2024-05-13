@@ -20,23 +20,21 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
         public TelaRevista telaRevista = null;
         public TelaMulta telaMulta = null;
 
-        public RepositorioPessoas repositorioPessoas= new();
-        public RepositorioRevistas repositorioRevistas = new RepositorioRevistas();
+        public RepositorioPessoas repositorioPessoas = null;
+        public RepositorioRevistas repositorioRevistas = null;
         public RepositorioMulta repositorioMulta = null;
 
         protected override EntidadeBase ObterRegistro()
         {
             telaPessoas.VisualizarRegistros(false);
 
-            Console.WriteLine("Por favor, informe o ID do amigo");
-            int idAmigo = Convert.ToInt32(Console.ReadLine());
+            int idAmigo = Program.Input<int>("Por favor, informe o ID do amigo:/n");
             Amigo amigoSelecionado = (Amigo)repositorioPessoas.SelecionaPorId(idAmigo);
 
 
             telaRevista.VisualizarRegistros(false);
 
-            Console.WriteLine("Por favor, informe ID da revista");
-            int idRevista = Convert.ToInt32(Console.ReadLine());
+            int idRevista = Program.Input<int>("Por favor, informe ID da revista");
             Revista revistaSelecionada = (Revista)repositorioRevistas.SelecionaPorId(idRevista);
 
             DateTime diaEmprestimo = DateTime.Now;
@@ -114,8 +112,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
         public void FinalizarEmprestimo()
         {
             VisualizarRegistros(true);
-            Console.WriteLine("Digite o ID do Emprestimo desejado");
-            int idEmprestimo = Convert.ToInt32(Console.ReadLine());
+            int idEmprestimo = Program.Input<int>("Digite o ID do Emprestimo desejado:\n");
             Emprestimo emprestimoSelecionado = (Emprestimo)repositorio.SelecionaPorId(idEmprestimo);
 
             VerificaAtraso(idEmprestimo);
@@ -144,9 +141,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 
             Console.WriteLine();
 
-            Console.Write("Escolha uma das opções: ");
-            char operacaoEscolhida = Convert.ToChar(Console.ReadLine());
-
+            char operacaoEscolhida = Program.Input<char>("Escolha uma das opções: \n");
             return operacaoEscolhida;
         }
         internal void CadastroTeste()

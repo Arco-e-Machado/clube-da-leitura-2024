@@ -11,17 +11,13 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
     {
         protected override EntidadeBase ObterRegistro()
         {
-            Console.WriteLine("Por favor, informe o nome do amigo");
-            string nome = Convert.ToString(Console.ReadLine());
+            string nome =Program.Input<string>("Por favor, informe o nome do amigo:\n");
 
-            Console.WriteLine("Por favor, informe o responsável");
-            string responsavel = Convert.ToString(Console.ReadLine());
+            string responsavel = Program.Input<string>("Por favor, informe o responsável:\n");
 
-            Console.WriteLine("Por favor, informe o telefone ");
-            string telefone = Convert.ToString(Console.ReadLine());
+            string telefone = Program.Input<string>("Por favor, informe o telefone:\n");
 
-            Console.WriteLine("Por favor, informe o endereço");
-            string endereco = Convert.ToString(Console.ReadLine());
+            string endereco = Program.Input<string>("Por favor, informe o endereço:\n");
 
             return new Amigo(nome, responsavel, telefone, endereco);
         }
@@ -47,7 +43,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
                 );
             }
 
-            Console.ReadLine();
+            Console.ReadKey();
             Console.WriteLine();
         }
 

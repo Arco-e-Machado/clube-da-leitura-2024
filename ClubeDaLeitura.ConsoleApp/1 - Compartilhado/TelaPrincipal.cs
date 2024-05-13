@@ -27,10 +27,7 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
             Console.WriteLine("S - Sair");
 
             Console.WriteLine();
-
-            Console.Write("Escolha uma das opções: ");
-
-            char opcaoEscolhida = Console.ReadLine()[0];
+            char opcaoEscolhida = Program.Input<char>("Escolha uma das opções: ");
 
             return opcaoEscolhida;
         }

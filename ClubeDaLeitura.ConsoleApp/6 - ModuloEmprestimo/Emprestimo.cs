@@ -20,7 +20,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimos
             this.revista = revista;
             this.dataEmprestimo = dataEmprestimo;
             this.dataDevolucao = dataDevolucao;
-            this.statusEmprestimo = revista.status;
+            this.revista.status = statusEmprestimo;
         }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
