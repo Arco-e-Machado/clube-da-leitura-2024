@@ -1,5 +1,4 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
-using System.Collections;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 {
@@ -15,14 +14,15 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
             this.endereco = endereco;
         }
 
-
-      
-
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
             Amigo registroNovo = (Amigo)novoRegistro;
 
+            this.nome = registroNovo.nome;
             this.responsavel = registroNovo.responsavel;
+            this.telefone = registroNovo.telefone;
+            this.endereco= registroNovo.endereco;
+
         }
 
     }

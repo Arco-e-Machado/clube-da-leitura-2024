@@ -1,16 +1,9 @@
 ﻿using ClubeDaLeitura.ConsoleApp.ModuloMultas;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
-using ClubeDaLeitura.ConsoleApp.ModuloCaixas;
 using ClubeDaLeitura.ConsoleApp.ModuloEmprestimos;
-using ClubeDaLeitura.ConsoleApp.ModuloMultas;
 using ClubeDaLeitura.ConsoleApp.ModuloPessoas;
 using ClubeDaLeitura.ConsoleApp.ModuloRevistas;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 {
@@ -28,13 +21,13 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
         {
             telaPessoas.VisualizarRegistros(false);
 
-            int idAmigo = Program.Input<int>("Por favor, informe o ID do amigo:/n");
+            int idAmigo = Program.Input<int>("Por favor, informe o ID do amigo:\n");
             Amigo amigoSelecionado = (Amigo)repositorioPessoas.SelecionaPorId(idAmigo);
 
 
             telaRevista.VisualizarRegistros(false);
 
-            int idRevista = Program.Input<int>("Por favor, informe ID da revista");
+            int idRevista = Program.Input<int>("Por favor, informe ID da revista:\n");
             Revista revistaSelecionada = (Revista)repositorioRevistas.SelecionaPorId(idRevista);
 
             DateTime diaEmprestimo = DateTime.Now;

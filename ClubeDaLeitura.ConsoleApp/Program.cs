@@ -5,11 +5,7 @@ using ClubeDaLeitura.ConsoleApp.ModuloEmprestimos;
 using ClubeDaLeitura.ConsoleApp.ModuloReservas;
 using ClubeDaLeitura.ConsoleApp.ModuloMultas;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
-using ClubeDaLeitura.ConsoleApp.ModuloReservas;
 using ClubeDaLeitura.ConsoleApp.ModuloEmprestimo;
-using ClubeDaLeitura.ConsoleApp.ModuloReservas;
-using ClubeDaLeitura.ConsoleApp.ModuloMultas;
-using System.Globalization;
 
 namespace ClubeDaLeitura.ConsoleApp
 {
@@ -33,12 +29,10 @@ namespace ClubeDaLeitura.ConsoleApp
             telaCaixa.tipoEntidade = "Caixa";
             telaCaixa.repositorio = repositorioCaixa;
 
-
             RepositorioReservas repositorioReserva = new RepositorioReservas();
             TelaReserva telaReserva = new TelaReserva();
             telaReserva.tipoEntidade = "Reserva";
             telaReserva.repositorio = repositorioReserva;
-
 
             RepositorioRevistas repositorioRevistas = new RepositorioRevistas();
             TelaRevista telaRevista = new TelaRevista();
@@ -50,10 +44,8 @@ namespace ClubeDaLeitura.ConsoleApp
             telaEmprestimo.tipoEntidade = "Emprestimo";
             telaEmprestimo.repositorio = repositorioEmprestimo;
 
-
             telaRevista.telaCaixa = telaCaixa;
             telaRevista.repositorioCaixa = repositorioCaixa;
-
 
             telaReserva.telaRevista = telaRevista;
             telaReserva.telaPessoas = telaPessoas;

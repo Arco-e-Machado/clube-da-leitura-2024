@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloRevistas;
 
@@ -37,7 +33,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
 
         public override ArrayList Validar()
         {
-            throw new NotImplementedException();
+            ArrayList erros = new ArrayList();
+
+            if (dataReserva == null)
+                erros.Add("O campo \"Data\" é obrigatório");
+
+            return erros;
         }
     }
 }

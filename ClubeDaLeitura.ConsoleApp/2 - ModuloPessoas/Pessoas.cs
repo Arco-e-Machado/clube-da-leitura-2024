@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
-using ClubeDaLeitura.ConsoleApp.ModuloMultas;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 {
@@ -25,11 +24,11 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
             if (string.IsNullOrEmpty(nome.Trim()))
                 erros.Add("O campo \"nome\" é obrigatório");
 
-            if (string.IsNullOrEmpty(telefone.Trim()))
-                erros.Add("O campo \"telefone\" é obrigatório");
-
             if (string.IsNullOrEmpty(endereco.Trim()))
                 erros.Add("O campo \"endereço\" é obrigatório");
+
+            if (string.IsNullOrEmpty(telefone.Trim()))
+                erros.Add("O campo \"telefone\" é obrigatório");
 
             return erros;
         }

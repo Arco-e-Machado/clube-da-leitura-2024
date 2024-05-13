@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ClubeDaLeitura.ConsoleApp.ModuloCaixas;
+﻿using ClubeDaLeitura.ConsoleApp.ModuloCaixas;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using System.Collections;
-using System.Runtime.ConstrainedExecution;
 
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas

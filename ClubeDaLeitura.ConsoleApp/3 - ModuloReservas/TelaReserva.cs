@@ -1,13 +1,7 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 using ClubeDaLeitura.ConsoleApp.ModuloPessoas;
-using ClubeDaLeitura.ConsoleApp.ModuloReservas;
 using ClubeDaLeitura.ConsoleApp.ModuloRevistas;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
 {
