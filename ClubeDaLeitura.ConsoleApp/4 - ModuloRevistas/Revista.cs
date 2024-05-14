@@ -42,7 +42,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
         {
             if (status == true)
                 return "Indisponivel";
-            return "Disponível";
+           
+                return "Disponível";
         }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)

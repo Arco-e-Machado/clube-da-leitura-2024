@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloMultas;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 {

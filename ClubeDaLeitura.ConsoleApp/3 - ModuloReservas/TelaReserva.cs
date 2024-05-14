@@ -7,7 +7,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
 {
     internal class TelaReserva : TelaBase
     {
-        public Revista revista;
+        public Revista revista = null;
         public TelaRevista telaRevista = null;
         public RepositorioRevistas repositorioRevista = null;
 
@@ -21,8 +21,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
             Console.WriteLine();
 
             Console.WriteLine(
-           "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -20}",
-           "Id", "Revista", "Data da reserva", "Amigo", "Status da reserva", "Data Limite"
+           "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20}",
+           "Id", "Revista", "Data da reserva", "Amigo", "Data Limite"
        );
 
             ArrayList reservasCadastradas = repositorio.PegaRegistros();
@@ -30,8 +30,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
             foreach (Reserva reserva in reservasCadastradas)
             {
                 Console.WriteLine(
-               "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20} | {5, -20}",
-                reserva._ID, reserva.revista.titulo, reserva.dataReserva.ToShortDateString(), reserva.filho.nome, revista.ConverterString(reserva.statusReserva), reserva.fimReserva.ToShortDateString()
+               "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20}",
+                reserva._ID, reserva.revista.titulo, reserva.dataReserva.ToShortDateString(), reserva.filho.nome, reserva.fimReserva.ToShortDateString()
               );
             }
 

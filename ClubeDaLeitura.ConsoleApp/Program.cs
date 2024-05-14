@@ -120,6 +120,7 @@ namespace ClubeDaLeitura.ConsoleApp
                     }
                 }
             }
+
             #region estudo
             //Console.WriteLine("Hello, World!");
             //Responsavel novoResponsavel = new("Pai do luiz", "Casa do pai do luiz", "48-4848-8844");

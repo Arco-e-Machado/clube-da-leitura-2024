@@ -19,7 +19,6 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
 
             int TDEmprestimo = Program.Input<int>("Por favor, informe o tempo de empréstimo para os livros contidos na caixa:\n");
 
-
             bool status = false;
 
             return new Caixa(etiqueta, cor, TDEmprestimo);
