@@ -1,4 +1,5 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloEmprestimo;
 using ClubeDaLeitura.ConsoleApp.ModuloPessoas;
 using ClubeDaLeitura.ConsoleApp.ModuloRevistas;
 using System.Collections;
@@ -20,11 +21,11 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimos
             this.revista = revista;
             this.dataEmprestimo = dataEmprestimo;
             this.dataDevolucao = dataDevolucao;
-            this.revista.status = statusEmprestimo;
+            this.statusEmprestimo = statusEmprestimo;
         }
         public string ConverterString(bool status)
         {
-            if (statusEmprestimo == true)
+            if (statusEmprestimo == false)
                 return "Atrasado";
 
             return "Sem atraso";
