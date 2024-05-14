@@ -23,7 +23,30 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
 
             return new Caixa(etiqueta, cor, TDEmprestimo);
         }
+        public override char ApresentarMenu()
+        {
+            Console.Clear();
 
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"        Gestão de {tipoEntidade}s        ");
+            Console.WriteLine("----------------------------------------");
+
+            Console.WriteLine();
+
+            Console.WriteLine($"1 - Cadastrar {tipoEntidade}");
+            Console.WriteLine($"2 - Editar {tipoEntidade}");
+            Console.WriteLine($"3 - Excluir {tipoEntidade}");
+            Console.WriteLine($"4 - Visualizar {tipoEntidade}s");
+            Console.WriteLine($"5 - Visualizar Revistas da {tipoEntidade}");
+
+            Console.WriteLine("S - Voltar");
+
+            Console.WriteLine();
+
+            char operacaoEscolhida = Program.Input<char>("Escolha uma das opções: \n");
+
+            return operacaoEscolhida;
+        }
         public override void VisualizarRegistros(bool verTudo)
         {
             Console.WriteLine("\nVisualizando Caixas...");
@@ -32,7 +55,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
 
             Console.WriteLine(
              "{0, -10} | {1, -15} | {2, -20} | {3, -20} | {4, -15}",
-             "Id", "Etiqueta", "Cor", "Dias de Emprestimo","Livros contidos"
+             "Id", "Etiqueta", "Cor", "Dias de Emprestimo", "Livros contidos"
          );
 
             ArrayList caixasCadastradas = repositorio.PegaRegistros();
@@ -63,7 +86,27 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
 
         internal void VisualizarRevistas()
         {
-            throw new NotImplementedException();
+            VisualizarRegistros(false);
+
+            Console.WriteLine("Digite o id da Caixa desejada");
+            int idCaixa = Convert.ToInt32(Console.ReadLine());
+            Caixa caixaSelecionada = (Caixa)repositorio.SelecionaPorId(idCaixa);
+
+            Console.WriteLine(
+                "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20}",
+                "Id", "Titulo", "Numero da Edicao", "Ano", "Disponilidade"
+            );
+
+            foreach (Revista revista in caixaSelecionada.Revistas)
+            {
+                Console.WriteLine(
+               "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20}",
+                revista._ID, revista.titulo, revista.numeroDeEdicao, revista.dataDeEdicao.ToShortDateString(), revista.status
+              );
+            }
+
+            Console.ReadLine();
+            Console.WriteLine();
         }
     }
 }

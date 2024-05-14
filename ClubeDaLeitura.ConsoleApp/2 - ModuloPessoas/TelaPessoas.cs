@@ -17,6 +17,30 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 
             return new Amigo(nome, responsavel, telefone, endereco);
         }
+        public override char ApresentarMenu()
+        {
+            Console.Clear();
+
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"        Gestão de {tipoEntidade}s        ");
+            Console.WriteLine("----------------------------------------");
+
+            Console.WriteLine();
+
+            Console.WriteLine($"1 - Cadastrar {tipoEntidade}");
+            Console.WriteLine($"2 - Editar {tipoEntidade}");
+            Console.WriteLine($"3 - Excluir {tipoEntidade}");
+            Console.WriteLine($"4 - Visualizar {tipoEntidade}s");
+            Console.WriteLine($"5 - Gerenciar Multas do {tipoEntidade}");
+
+            Console.WriteLine("S - Voltar");
+
+            Console.WriteLine();
+
+            char operacaoEscolhida = Program.Input<char>("Escolha uma das opções: \n");
+
+            return operacaoEscolhida;
+        }
 
         public override void VisualizarRegistros(bool verTudo)
         {

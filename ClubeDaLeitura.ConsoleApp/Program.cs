@@ -114,10 +114,50 @@ namespace ClubeDaLeitura.ConsoleApp
                         tela.VisualizarRegistros(true);
 
                     else if (operacaoEscolhida == '5')
-                    {
-                        TelaCaixa telaConvertida = (TelaCaixa)tela;
-                        telaConvertida.VisualizarRevistas();
-                    }
+                        if (tela.tipoEntidade == "Caixa")
+                        {
+                            TelaCaixa telaConvertida = (TelaCaixa)tela;
+                            telaConvertida.VisualizarRevistas();
+                        }
+
+                        else if (tela.tipoEntidade == "Amigo")
+                        {
+                            while (true)
+                            {
+                                tela = telaMulta;
+                                operacaoEscolhida = tela.ApresentarMenu();
+
+                                if (operacaoEscolhida == 'S' || operacaoEscolhida == 's')
+                                {
+                                    tela = telaPessoas;
+                                    break;
+                                }
+
+                                if (operacaoEscolhida == '1')
+                                {
+                                    tela.VisualizarRegistros(true);
+                                }
+                                else if (operacaoEscolhida == '2')
+                                {
+
+                                }
+
+                                else
+                                    continue;
+
+                            }
+
+                        }
+
+                        else if (tela.tipoEntidade == "Emprestimo")
+                        {
+                            TelaEmprestimo telaConvertida = (TelaEmprestimo)tela;
+                            telaConvertida.FinalizarEmprestimo();
+                        }
+
+                        else
+                            continue;
+
                 }
             }
 

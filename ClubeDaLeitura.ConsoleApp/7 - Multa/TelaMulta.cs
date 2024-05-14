@@ -33,7 +33,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloMultas
             Console.WriteLine();
         }
 
-        public Multa GeraMulta(int tempoDecorrido, string revista, string amigo)
+        public Multa GerarMulta(int tempoDecorrido, string revista, string amigo)
         {
             return new Multa(tempoDecorrido, revista, amigo);
         }

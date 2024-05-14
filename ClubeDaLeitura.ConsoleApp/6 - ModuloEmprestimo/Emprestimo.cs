@@ -22,7 +22,13 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimos
             this.dataDevolucao = dataDevolucao;
             this.revista.status = statusEmprestimo;
         }
+        public string ConverterString(bool status)
+        {
+            if (statusEmprestimo == true)
+                return "Atrasado";
 
+            return "Sem atraso";
+        }
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
             Emprestimo registroNovo = (Emprestimo)novoRegistro;
