@@ -21,13 +21,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
         {
             telaPessoas.VisualizarRegistros(false);
 
-            int idAmigo = Program.Input<int>("Por favor, informe o ID do amigo: ");
-            Amigo amigoSelecionado = (Amigo)repositorioPessoas.SelecionaPorId(idAmigo);
-
+            Amigo amigoSelecionado = VerificarMulta();
             telaRevista.VisualizarRegistros(false);
 
-            int idRevista = Program.Input<int>("Por favor, informe ID da revista:\n");
-            Revista revistaSelecionada = (Revista)repositorioRevistas.SelecionaPorId(idRevista);
+            int idRevista;
+            Revista revistaSelecionada;
+            VerificarRevistaDisponivel(out idRevista, out revistaSelecionada);
 
             DateTime diaEmprestimo = DateTime.Now;
             DateTime dataDevolucao = diaEmprestimo.AddDays(telaRevista.EscolherCaixaRevistas(idRevista));
@@ -37,6 +36,33 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 
             return novoEmprestimo;
         }
+
+        private void VerificarRevistaDisponivel(out int idRevista, out Revista revistaSelecionada)
+        {
+            idRevista = Program.Input<int>("Por favor, informe ID da revista:\n");
+            revistaSelecionada = (Revista)repositorioRevistas.SelecionaPorId(idRevista);
+            while (revistaSelecionada.EstaEmprestada == true)
+            {
+                Console.WriteLine("Esta revista esta emprestada!");
+                idRevista = Program.Input<int>("Por favor, informe ID da revista:\n");
+                revistaSelecionada = (Revista)repositorioRevistas.SelecionaPorId(idRevista);
+            }
+        }
+
+        private Amigo VerificarMulta()
+        {
+            int idAmigo = Program.Input<int>("Por favor, informe o ID do amigo: ");
+            Amigo amigoSelecionado = (Amigo)repositorioPessoas.SelecionaPorId(idAmigo);
+            while (amigoSelecionado.estaMultado == true)
+            {
+                Console.WriteLine("Seu empréstimo foi negado por estar multado");
+                idAmigo = Program.Input<int>("Por favor, informe o ID do amigo: ");
+                amigoSelecionado = (Amigo)repositorioPessoas.SelecionaPorId(idAmigo);
+            }
+
+            return amigoSelecionado;
+        }
+
         public override void VisualizarRegistros(bool verTudo)
         {
             Console.Clear();
@@ -69,6 +95,21 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             Console.WriteLine();
         }
 
+        public void Multar()
+        {
+            ArrayList todosOsEmprestimos = repositorio.PegaRegistros();
+            foreach (Emprestimo emprestimo in todosOsEmprestimos)
+            {
+                DateTime hoje = DateTime.Now;
+                DateTime limite = emprestimo.dataDevolucao;
+                TimeSpan dias = 5 * (limite - hoje);
+                if (limite < hoje)
+                {
+                    emprestimo.filho.estaMultado = true;
+                }
+            }
+        }
+
         public void FinalizarEmprestimo()
         {
             VisualizarRegistros(true);
@@ -77,8 +118,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 
             DevolverRevista(emprestimoSelecionado);
             emprestimoSelecionado.ConcluirEmprestimo();
-            ArrayList todosOsEmprestimo = repositorio.PegaRegistros();
-            todosOsEmprestimo.Remove(emprestimoSelecionado);
+            ArrayList todosOsEmprestimos = repositorio.PegaRegistros();
+            todosOsEmprestimos.Remove(emprestimoSelecionado);
 
             ExibirMensagem("Emprestimo finalizado", ConsoleColor.Green);
 
@@ -87,6 +128,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
         private static void DevolverRevista(Emprestimo emprestimoSelecionado)
         {
             emprestimoSelecionado.revista.Devolver();
+
         }
 
         public override char ApresentarMenu()

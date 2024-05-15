@@ -9,6 +9,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
         public string nome { get; set; }
         public string telefone { get; set; }
         public string endereco { get; set; }
+        public bool estaMultado { get; set; }
+
         public ArrayList multas { get; set; } = new ArrayList();
 
         public Pessoas(string nome, string endereco, string telefone)
@@ -16,6 +18,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
             this.nome = nome;
             this.telefone = telefone;
             this.endereco = endereco;
+            estaMultado = false;
         }
 
         public override ArrayList Validar()
