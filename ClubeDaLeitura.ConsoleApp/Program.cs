@@ -66,7 +66,6 @@ namespace ClubeDaLeitura.ConsoleApp
             telaEmprestimo.repositorioMulta = repositorioMulta;
 
             telaReserva.repositorioEmprestimos = repositorioEmprestimo;
-
             telaPessoas.CadastroTeste();
             telaCaixa.CadastroTeste();
             telaRevista.CadastroTeste();

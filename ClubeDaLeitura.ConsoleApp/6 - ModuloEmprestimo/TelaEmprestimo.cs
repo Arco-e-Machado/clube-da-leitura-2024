@@ -4,6 +4,7 @@ using ClubeDaLeitura.ConsoleApp.ModuloEmprestimos;
 using ClubeDaLeitura.ConsoleApp.ModuloPessoas;
 using ClubeDaLeitura.ConsoleApp.ModuloRevistas;
 using System.Collections;
+using Microsoft.Win32;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 {
@@ -37,37 +38,64 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 
             return novoEmprestimo;
         }
-        public override void VisualizarRegistros(bool verTudo)
+        public override void VisualizarRegistros(bool exibirTitulo)
         {
-            Console.Clear();
+            ApresentarCabeçalho();
 
-            Console.WriteLine("Visualizando Revistas");
+            Console.WriteLine("Visualizando Empréstimos...");
 
+            Console.WriteLine();
+
+            Console.WriteLine("1 - Visualizar Empréstimos do Mês");
+            Console.WriteLine("2 - Visualizar Empréstimos Em Aberto do Dia");
+            Console.WriteLine("3 - Visualizar Todos os Empréstimos");
+
+            Console.WriteLine();
+
+            Console.Write("Digite uma opção válida: ");
+            char opcaoEscolhida = Console.ReadLine()[0];
+
+            ArrayList emprestimos;
+
+            if (opcaoEscolhida == '1')
+                emprestimos = ((RepositorioEmprestimos)repositorio).SelecionarEmprestimosDoMes();
+
+            else if (opcaoEscolhida == '2')
+                emprestimos = ((RepositorioEmprestimos)repositorio).SelecionarEmprestimosDoDia();
+
+            else
+                emprestimos = repositorio.PegaRegistros();
+
+            VisualizarEmprestimos(emprestimos);
+        }
+
+        public void VisualizarEmprestimos(ArrayList emprestimos)
+        {
             Console.WriteLine();
 
             Console.WriteLine(
-             "{0, -10} | {1, -15} | {2, -20} | {3, -20} | {4, -20}",
-             "Id", "Amigo", "Revista", "Data do Emprestimo", "Data de Devolução"
-         );
+                "{0, -10} | {1, -20} | {2, -15} | {3, -10} | {4, -20} | {5, -20}",
+                "Id", "Revista", "Amigo", "Data", "Data de Devolução", "Status"
+            );
 
-            ArrayList EmprestimosCadastrados = repositorio.PegaRegistros();
-
-            foreach (Emprestimo emprestimo in EmprestimosCadastrados)
+            foreach (Emprestimo e in emprestimos)
             {
+                if (e == null)
+                    continue;
+
+                string statusEmprestimo = e.Concluido ? "Concluído" : "Em Aberto";
+
                 Console.WriteLine(
-               "{0, -10} | {1, -15} | {2, -20} | {3, -20} | {4, -20}",
-                emprestimo._ID,
-                emprestimo.filho.nome,
-                emprestimo.revista.titulo,
-                emprestimo.dataEmprestimo.ToShortDateString(),
-                emprestimo.dataDevolucao.ToShortDateString()
-              );
+                    "{0, -10} | {1, -20} | {2, -15} | {3, -10} | {4, -20} | {5, -20}",
+                    e._ID, e.revista.titulo, e.filho.nome, e.dataEmprestimo.ToShortDateString(), e.dataDevolucao.ToShortDateString(), statusEmprestimo
+
+                );
             }
 
-            Console.WriteLine("\nDigite qualquer tecla para continuar: ");
-            Console.ReadKey();
-            Console.WriteLine();
+            Console.ReadLine();
         }
+
+        
 
         public void FinalizarEmprestimo()
         {

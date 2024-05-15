@@ -55,9 +55,9 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloMultas
 
             Console.WriteLine();
 
-            char operacaoEscolhida = Program.Input<char>("Escolha uma das opções: ");
+            char operacaoEscolhida2 = Program.Input<char>("Escolha uma das opções: ");
 
-            return operacaoEscolhida;
+            return operacaoEscolhida2;
 
         }
 
