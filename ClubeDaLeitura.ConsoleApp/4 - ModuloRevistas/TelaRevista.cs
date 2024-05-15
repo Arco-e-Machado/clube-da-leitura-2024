@@ -26,7 +26,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
             bool status = false;
 
 
-            return new Revista(titulo, numeroDeEdicao, repositorioRevista, dataDeEdicao, status);
+            return new Revista(titulo, numeroDeEdicao, repositorioRevista, dataDeEdicao);
         }
 
         public override void VisualizarRegistros(bool verTudo)
@@ -74,16 +74,16 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
         public void CadastroTeste()
         {
             Caixa caixa = (Caixa)repositorioCaixa.SelecionaPorId(1);
-            Revista revistaTeste = new Revista("Batman", 7, caixa, new DateTime(1997, 07, 02), false);
+            Revista revistaTeste = new Revista("Batman", 7, caixa, new DateTime(1997, 07, 02));
 
             Caixa caixa2 = (Caixa)repositorioCaixa.SelecionaPorId(2);
-            Revista revistaTeste2 = new Revista("Branca de neve", 7, caixa2, new DateTime(1899, 02, 22), false);
+            Revista revistaTeste2 = new Revista("Branca de neve", 7, caixa2, new DateTime(1899, 02, 22));
 
             Caixa caixa3 = (Caixa)repositorioCaixa.SelecionaPorId(3);
-            Revista revistaTeste3 = new Revista("Berserker", 7, caixa3, new DateTime(2005, 11, 20), false);
+            Revista revistaTeste3 = new Revista("Berserker", 7, caixa3, new DateTime(2005, 11, 20));
 
             Caixa caixa4 = (Caixa)repositorioCaixa.SelecionaPorId(4);
-            Revista revistaTeste4 = new Revista("Ragnarok", 7, caixa4, new DateTime(1999, 10, 22), false);
+            Revista revistaTeste4 = new Revista("Ragnarok", 7, caixa4, new DateTime(1999, 10, 22));
 
 
             repositorio.Cadastrar(revistaTeste);

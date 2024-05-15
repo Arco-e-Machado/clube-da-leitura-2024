@@ -105,7 +105,9 @@ namespace ClubeDaLeitura.ConsoleApp
                     {
                         if (tela.tipoEntidade == "Emprestimo")
                         {
-                            if (operacaoEscolhida == '2')
+                            if (operacaoEscolhida == '1')
+                                tela.Registrar();
+                            else if (operacaoEscolhida == '2')
                                 tela.VisualizarRegistros(true);
                             else if (operacaoEscolhida == '3')
                                 telaEmprestimo.FinalizarEmprestimo();
@@ -137,8 +139,7 @@ namespace ClubeDaLeitura.ConsoleApp
 
                             else if (operacaoEscolhida == '5')
                             {
-                                TelaCaixa telaConvertida = (TelaCaixa)tela;
-                                telaConvertida.VisualizarRevistas();
+                                telaCaixa.VisualizarRevistas();
                             }
                         }
                     }

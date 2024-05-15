@@ -12,23 +12,25 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimos
         public Revista revista { get; set; }
         public DateTime dataEmprestimo { get; set; }
         public DateTime dataDevolucao { get; set; }
-        public bool statusEmprestimo { get; set; } //Concluido
+        public bool Concluido { get; set; } //Concluido
 
-        public Emprestimo(Pessoas filho, Revista revista, DateTime dataEmprestimo, DateTime dataDevolucao, bool statusEmprestimo)
+        public Emprestimo(Pessoas filho, Revista revista, DateTime dataEmprestimo, DateTime dataDevolucao)
         {
             this.filho = filho;
             this.revista = revista;
             this.dataEmprestimo = dataEmprestimo;
             this.dataDevolucao = dataDevolucao;
-            this.revista.EstaEmprestada= statusEmprestimo;
+            this.Concluido = false;
         }
 
-        public string ConverterString(bool status)
+        public void Emprestar()
         {
-            if (status == false)
-                return "Atrasado";
-
-            return "Sem atraso";
+            revista.Emprestar();
+        }
+        public void ConcluirEmprestimo()
+        {
+            revista.Devolver();
+            Concluido = true;
         }
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
@@ -38,7 +40,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimos
             revista = registroNovo.revista;
             dataEmprestimo = registroNovo.dataEmprestimo;
             dataDevolucao = registroNovo.dataDevolucao;
-            statusEmprestimo = registroNovo.statusEmprestimo;
+            Concluido = registroNovo.Concluido;
         }
 
         public override ArrayList Validar()
