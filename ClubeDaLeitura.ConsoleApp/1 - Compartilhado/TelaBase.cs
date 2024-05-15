@@ -50,8 +50,6 @@
 
             Console.WriteLine($"Editando {tipoEntidade}...");
 
-            Console.WriteLine("");
-
             VisualizarRegistros(false);
 
             int idEscolhido = Program.Input<int>($"Informe o ID do {tipoEntidade} a ser editado: ");
@@ -81,9 +79,6 @@
             VisualizarRegistros(false);
 
             int idEscolhido = Program.Input<int>($"Informe o ID do {tipoEntidade} a ser excluido: ");
-
-            Console.WriteLine("");
-
 
             bool consegueExcuir = repositorio.Excluir(idEscolhido);
 

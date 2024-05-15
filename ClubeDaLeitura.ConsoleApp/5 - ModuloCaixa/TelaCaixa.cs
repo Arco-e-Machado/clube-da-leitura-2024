@@ -13,11 +13,11 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
 
         protected override EntidadeBase ObterRegistro()
         {
-            string etiqueta = Program.Input<string>("Por favor, informe o etiqueta da caixa:\n");
+            string etiqueta = Program.Input<string>("Por favor, informe o etiqueta da caixa: ");
 
-            string cor = Program.Input<string>("Por favor, informe o cor da caixa:\n");
+            string cor = Program.Input<string>("\nPor favor, informe o cor da caixa: ");
 
-            int TDEmprestimo = Program.Input<int>("Por favor, informe o tempo de empréstimo para os livros contidos na caixa:\n");
+            int TDEmprestimo = Program.Input<int>("\nPor favor, informe o tempo de empréstimo para os livros contidos na caixa: ");
 
             bool status = false;
 
@@ -37,19 +37,21 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
             Console.WriteLine($"2 - Editar {tipoEntidade}");
             Console.WriteLine($"3 - Excluir {tipoEntidade}");
             Console.WriteLine($"4 - Visualizar {tipoEntidade}s");
-            Console.WriteLine($"5 - Visualizar Revistas da {tipoEntidade}");
+            Console.WriteLine($"5 - Visualizar Revistas da {tipoEntidade}\n");
 
             Console.WriteLine("S - Voltar");
 
             Console.WriteLine();
 
-            char operacaoEscolhida = Program.Input<char>("Escolha uma das opções: \n");
+            char operacaoEscolhida = Program.Input<char>("Escolha uma das opções: ");
 
             return operacaoEscolhida;
         }
         public override void VisualizarRegistros(bool verTudo)
         {
-            Console.WriteLine("\nVisualizando Caixas...");
+            Console.Clear();
+
+            Console.WriteLine("Visualizando Caixas...");
 
             Console.WriteLine();
 
@@ -67,7 +69,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
                 caixa._ID, caixa.etiqueta, caixa.cor, caixa.tempoDeEmprestimo, caixa.Revistas.Count);
             }
 
-            Console.ReadLine();
+            Console.WriteLine("\nDigite qualquer tecla para continuar...");
+            Console.ReadKey();
             Console.WriteLine();
         }
 
@@ -88,9 +91,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
         {
             VisualizarRegistros(false);
 
-            Console.WriteLine("Digite o id da Caixa desejada");
+            Console.Write("Digite o id da Caixa desejada: ");
             int idCaixa = Convert.ToInt32(Console.ReadLine());
             Caixa caixaSelecionada = (Caixa)repositorio.SelecionaPorId(idCaixa);
+
+            Console.Clear();
+            Console.WriteLine("Visualizando Revistas dentro da caixa selecionada...\n");
 
             Console.WriteLine(
                 "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20}",
@@ -105,7 +111,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
               );
             }
 
-            Console.ReadLine();
+            Console.WriteLine("\nDigite qualquer tecla para voltar ao menu...");
+            Console.ReadKey();
             Console.WriteLine();
         }
     }

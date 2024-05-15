@@ -35,6 +35,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
               );
             }
 
+            Console.WriteLine("\nDigite qualquer tecla para continuar...");
             Console.ReadKey();
             Console.WriteLine();
         }
@@ -43,15 +44,15 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
         {
             telaRevista.VisualizarRegistros(false);
             Console.WriteLine();
-            int idRevista = Program.Input<int>("Por favor, informe o ID da revista a ser retirada:\n");
+            int idRevista = Program.Input<int>("Por favor, informe o ID da revista a ser retirada: ");
             Revista revistaSelecionada = (Revista)repositorioRevista.SelecionaPorId(idRevista);
             VerificarDisponibilidade(ref idRevista, ref revistaSelecionada);
 
             revistaSelecionada.status = true;
 
             telaPessoas.VisualizarRegistros(false);
-            Console.WriteLine();
-            int idAmigo = Program.Input<int>("Por favor, informe o ID do amigo que vai retirar a revista:\n");
+
+            int idAmigo = Program.Input<int>("Por favor, informe o ID do amigo que vai retirar a revista: ");
             Amigo amigoSelecionado = (Amigo)repositorioPessoas.SelecionaPorId(idAmigo);
 
             int diasMaximosParaReserva = 2;
@@ -66,8 +67,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
         {
             while (!revistaSelecionada.status == false)
             {
-                Console.WriteLine("A revista não está disponível!");
-                idRevista = Program.Input<int>("Por favor, informe o ID da revista a ser retirada:\n");
+                Console.WriteLine("\nA revista não está disponível!");
+                idRevista = Program.Input<int>("Por favor, informe o ID da revista a ser retirada: ");
                 revistaSelecionada = (Revista)repositorioRevista.SelecionaPorId(idRevista);
             }
         }
