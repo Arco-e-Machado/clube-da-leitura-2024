@@ -1,4 +1,5 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
+using ClubeDaLeitura.ConsoleApp.ModuloEmprestimos;
 using ClubeDaLeitura.ConsoleApp.ModuloPessoas;
 using ClubeDaLeitura.ConsoleApp.ModuloRevistas;
 using System.Collections;
@@ -10,6 +11,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
         public Revista revista = null;
         public TelaRevista telaRevista = null;
         public RepositorioRevistas repositorioRevista = null;
+
+        public RepositorioEmprestimos repositorioEmprestimos;
 
         public TelaPessoas telaPessoas = null;
         public RepositorioPessoas repositorioPessoas = null;
@@ -60,39 +63,61 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
             char operacaoEscolhida = Program.Input<char>("Escolha uma das opções: \n");
             return operacaoEscolhida;
         }
-
         protected override EntidadeBase ObterRegistro()
         {
             telaRevista.VisualizarRegistros(false);
             Console.WriteLine();
             int idRevista = Program.Input<int>("Por favor, informe o ID da revista a ser retirada: ");
             Revista revistaSelecionada = (Revista)repositorioRevista.SelecionaPorId(idRevista);
+
             VerificarDisponibilidade(ref idRevista, ref revistaSelecionada);
 
-            revistaSelecionada.EstaEmprestada = true;
-
             telaPessoas.VisualizarRegistros(false);
-
             int idAmigo = Program.Input<int>("Por favor, informe o ID do amigo que vai retirar a revista: ");
             Amigo amigoSelecionado = (Amigo)repositorioPessoas.SelecionaPorId(idAmigo);
 
             int diasMaximosParaReserva = 2;
 
             DateTime fimReserva = DateTime.Now.AddDays(diasMaximosParaReserva);
-            bool status = false;
 
-            return new Reserva(revistaSelecionada, DateTime.Now, fimReserva, amigoSelecionado, status);
+            return new Reserva(revistaSelecionada, DateTime.Now, fimReserva, amigoSelecionado);
         }
 
-        private void VerificarDisponibilidade(ref int idRevista, ref Revista revistaSelecionada)
+        private bool VerificarDisponibilidade(ref int idRevista, ref Revista revistaSelecionada)
         {
-            while (!revistaSelecionada.EstaEmprestada == false)
+            while (revistaSelecionada.EstaEmprestada == true)
             {
                 Console.WriteLine("\nA revista não está disponível!");
                 idRevista = Program.Input<int>("Por favor, informe o ID da revista a ser retirada: ");
                 revistaSelecionada = (Revista)repositorioRevista.SelecionaPorId(idRevista);
             }
+            return true;
+        }
+
+        public void RetirarReserva()
+        {
+            VisualizarRegistros(true);
+            int idReserva = Program.Input<int>("Digite o ID da reserva desejada: ");
+            Reserva reservaSelecionada = (Reserva)repositorio.SelecionaPorId(idReserva);
+
+            reservaSelecionada.revista.Emprestar();
+            ArrayList todasAsReservas = repositorio.PegaRegistros();
+            todasAsReservas.Remove(reservaSelecionada);
+
+            EmprestarReserva(reservaSelecionada);
+
+            ExibirMensagem("Reserva finalizada", ConsoleColor.Green);
+        }
+
+        private Emprestimo EmprestarReserva(Reserva reservaSelecionada)
+        {
+            DateTime teste = DateTime.Now;
+            DateTime Devolucao = teste.AddDays(reservaSelecionada.revista.repositorio.tempoDeEmprestimo);
+
+            Emprestimo novoEsprestimoDaReserva = new(reservaSelecionada.filho, reservaSelecionada.revista, DateTime.Now, Devolucao);
+            repositorioEmprestimos.Cadastrar(novoEsprestimoDaReserva);
+
+            return novoEsprestimoDaReserva;
         }
     }
-
 }

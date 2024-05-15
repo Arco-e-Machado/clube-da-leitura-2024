@@ -65,6 +65,8 @@ namespace ClubeDaLeitura.ConsoleApp
             telaEmprestimo.repositorioRevistas = repositorioRevistas;
             telaEmprestimo.repositorioMulta = repositorioMulta;
 
+            telaReserva.repositorioEmprestimos = repositorioEmprestimo;
+
             telaPessoas.CadastroTeste();
             telaCaixa.CadastroTeste();
             telaRevista.CadastroTeste();
@@ -107,8 +109,10 @@ namespace ClubeDaLeitura.ConsoleApp
                         {
                             if (operacaoEscolhida == '1')
                                 tela.Registrar();
+
                             else if (operacaoEscolhida == '2')
                                 tela.VisualizarRegistros(true);
+
                             else if (operacaoEscolhida == '3')
                                 telaEmprestimo.FinalizarEmprestimo();
                         }
@@ -121,7 +125,8 @@ namespace ClubeDaLeitura.ConsoleApp
                                 tela.VisualizarRegistros(true);
 
                             else if (operacaoEscolhida == '3')
-                                Console.WriteLine("Ta fungando ñ");
+                                telaReserva.RetirarReserva();
+
                         }
                         else
                         {

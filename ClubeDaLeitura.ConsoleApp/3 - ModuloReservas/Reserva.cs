@@ -10,15 +10,14 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
         public DateTime dataReserva { get; set; }
         public DateTime fimReserva { get; set; }
         public ModuloPessoas.Amigo filho { get; set; }
-        public bool statusReserva { get; set; }
+        public bool Concluida { get; set; }
 
-        public Reserva(Revista revista, DateTime dataReserva, DateTime fimReserva, ModuloPessoas.Amigo filho, bool statusReserva)
+        public Reserva(Revista revista, DateTime dataReserva, DateTime fimReserva, ModuloPessoas.Amigo filho)
         {
             this.revista = revista;
             this.dataReserva = dataReserva;
             this.fimReserva = fimReserva;
             this.filho = filho;
-            this.statusReserva = statusReserva;
         }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
@@ -28,7 +27,6 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
             this.revista = registroNovo.revista;
             this.dataReserva = registroNovo.dataReserva;
             this.filho = registroNovo.filho;
-            this.statusReserva = registroNovo.statusReserva;
         }
 
         public override ArrayList Validar()

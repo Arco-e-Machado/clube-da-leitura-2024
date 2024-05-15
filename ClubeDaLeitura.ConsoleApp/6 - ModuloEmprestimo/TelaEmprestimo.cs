@@ -77,7 +77,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 
             DevolverRevista(emprestimoSelecionado);
             emprestimoSelecionado.ConcluirEmprestimo();
-
+            ArrayList todosOsEmprestimo = repositorio.PegaRegistros();
+            todosOsEmprestimo.Remove(emprestimoSelecionado);
 
             ExibirMensagem("Emprestimo finalizado", ConsoleColor.Green);
 
@@ -99,10 +100,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             Console.WriteLine();
 
             Console.WriteLine($"1 - Cadastrar {tipoEntidade}");
-            Console.WriteLine($"2 - Editar {tipoEntidade}");
-            Console.WriteLine($"3 - Excluir {tipoEntidade}");
-            Console.WriteLine($"4 - Visualizar {tipoEntidade}s");
-            Console.WriteLine($"5 - Finalizar {tipoEntidade}");
+            Console.WriteLine($"2 - Visualizar {tipoEntidade}s");
+            Console.WriteLine($"3 - Finalizar {tipoEntidade}");
 
             Console.WriteLine("S - Voltar");
 
