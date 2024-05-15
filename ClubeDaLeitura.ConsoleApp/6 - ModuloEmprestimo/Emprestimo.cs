@@ -1,5 +1,4 @@
 ﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
-using ClubeDaLeitura.ConsoleApp.ModuloEmprestimo;
 using ClubeDaLeitura.ConsoleApp.ModuloPessoas;
 using ClubeDaLeitura.ConsoleApp.ModuloRevistas;
 using System.Collections;
@@ -13,7 +12,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimos
         public Revista revista { get; set; }
         public DateTime dataEmprestimo { get; set; }
         public DateTime dataDevolucao { get; set; }
-        public bool statusEmprestimo { get; set; }
+        public bool statusEmprestimo { get; set; } //Concluido
 
         public Emprestimo(Pessoas filho, Revista revista, DateTime dataEmprestimo, DateTime dataDevolucao, bool statusEmprestimo)
         {
@@ -21,11 +20,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimos
             this.revista = revista;
             this.dataEmprestimo = dataEmprestimo;
             this.dataDevolucao = dataDevolucao;
-            this.statusEmprestimo = statusEmprestimo;
+            this.revista.EstaEmprestada= statusEmprestimo;
         }
+
         public string ConverterString(bool status)
         {
-            if (statusEmprestimo == false)
+            if (status == false)
                 return "Atrasado";
 
             return "Sem atraso";

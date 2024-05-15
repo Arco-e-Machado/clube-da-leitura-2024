@@ -101,7 +101,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloCaixas
             {
                 Console.WriteLine(
                "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -20}",
-                revista._ID, revista.titulo, revista.numeroDeEdicao, revista.dataDeEdicao.ToShortDateString(), revista.ConverterString(revista.status)
+                revista._ID, revista.titulo, revista.numeroDeEdicao, revista.dataDeEdicao.ToShortDateString(), revista.ConverterString(revista.EstaEmprestada)
               );
             }
 

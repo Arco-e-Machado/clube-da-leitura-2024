@@ -94,72 +94,58 @@ namespace ClubeDaLeitura.ConsoleApp
                 else if (opcaoPrincipalEscolhida == '5')
                     tela = telaRevista;
 
+                if (tela == null)
+                    continue;
                 while (true)
                 {
                     char operacaoEscolhida = tela.ApresentarMenu();
 
                     if (operacaoEscolhida == 'S' || operacaoEscolhida == 's')
                         break;
-
-                    if (operacaoEscolhida == '1')
-                        tela.Registrar();
-
-                    else if (operacaoEscolhida == '2')
-                        tela.Editar();
-
-                    else if (operacaoEscolhida == '3')
-                        tela.Excluir();
-
-                    else if (operacaoEscolhida == '4')
-                        tela.VisualizarRegistros(true);
-
-                    else if (operacaoEscolhida == '5')
-                        if (tela.tipoEntidade == "Caixa")
+                    {
+                        if (tela.tipoEntidade == "Emprestimo")
                         {
-                            TelaCaixa telaConvertida = (TelaCaixa)tela;
-                            telaConvertida.VisualizarRevistas();
+                            if (operacaoEscolhida == '2')
+                                tela.VisualizarRegistros(true);
+                            else if (operacaoEscolhida == '3')
+                                telaEmprestimo.FinalizarEmprestimo();
                         }
-
-                        else if (tela.tipoEntidade == "Amigo")
+                        else if (tela.tipoEntidade == "Reserva")
                         {
-                            while (true)
-                            {
-                                tela = telaMulta;
-                                operacaoEscolhida = tela.ApresentarMenu();
+                            if (operacaoEscolhida == '1')
+                                tela.Registrar();
 
-                                if (operacaoEscolhida == 'S' || operacaoEscolhida == 's')
-                                {
-                                    tela = telaPessoas;
-                                    break;
-                                }
+                            else if (operacaoEscolhida == '2')
+                                tela.VisualizarRegistros(true);
 
-                                if (operacaoEscolhida == '1')
-                                {
-                                    tela.VisualizarRegistros(true);
-                                }
-                                else if (operacaoEscolhida == '2')
-                                {
-
-                                }
-
-                                else
-                                    continue;
-
-                            }
-
+                            else if (operacaoEscolhida == '3')
+                                Console.WriteLine("Ta fungando ñ");
                         }
-
-                        else if (tela.tipoEntidade == "Emprestimo")
-                        {
-                            TelaEmprestimo telaConvertida = (TelaEmprestimo)tela;
-                            telaConvertida.FinalizarEmprestimo();
-                        }
-
                         else
-                            continue;
+                        {
+                            if (operacaoEscolhida == '1')
+                                tela.Registrar();
 
+                            else if (operacaoEscolhida == '2')
+                                tela.Editar();
+
+                            else if (operacaoEscolhida == '3')
+                                tela.Excluir();
+
+                            else if (operacaoEscolhida == '4')
+                                tela.VisualizarRegistros(true);
+
+                            else if (operacaoEscolhida == '5')
+                            {
+                                TelaCaixa telaConvertida = (TelaCaixa)tela;
+                                telaConvertida.VisualizarRevistas();
+                            }
+                        }
+                    }
                 }
             }
+
+
 
             #region estudo
             //Console.WriteLine("Hello, World!");

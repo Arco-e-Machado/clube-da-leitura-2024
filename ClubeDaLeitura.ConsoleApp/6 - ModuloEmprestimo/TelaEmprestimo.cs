@@ -119,7 +119,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
 
         private static void DevolverRevista(Emprestimo emprestimoSelecionado)
         {
-            emprestimoSelecionado.revista.status = false;
+            emprestimoSelecionado.revista.EstaEmprestada = false;
         }
 
         public override char ApresentarMenu()
@@ -133,10 +133,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             Console.WriteLine();
 
             Console.WriteLine($"1 - Cadastrar {tipoEntidade}");
-            Console.WriteLine($"2 - Editar {tipoEntidade}");
-            Console.WriteLine($"3 - Excluir {tipoEntidade}");
-            Console.WriteLine($"4 - Visualizar {tipoEntidade}s");
-            Console.WriteLine($"5 - Finalizar {tipoEntidade}");
+            Console.WriteLine($"2 - Visualizar {tipoEntidade}s");
+            Console.WriteLine($"3 - Finalizar {tipoEntidade}");
 
             Console.WriteLine("S - Voltar");
 
@@ -145,6 +143,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             char operacaoEscolhida = Program.Input<char>("Escolha uma das opções: \n");
             return operacaoEscolhida;
         }
+
         internal void CadastroTeste()
         {
             Amigo AmigoEmprestimo = (Amigo)repositorioPessoas.SelecionaPorId(1);

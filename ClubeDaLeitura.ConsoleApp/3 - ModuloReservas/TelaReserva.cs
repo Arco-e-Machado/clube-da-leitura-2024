@@ -38,6 +38,27 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
             Console.ReadKey();
             Console.WriteLine();
         }
+        public override char ApresentarMenu()
+        {
+            Console.Clear();
+
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"        Gestão de {tipoEntidade}s        ");
+            Console.WriteLine("----------------------------------------");
+
+            Console.WriteLine();
+
+            Console.WriteLine($"1 - Cadastrar {tipoEntidade}");
+            Console.WriteLine($"2 - Visualizar {tipoEntidade}s");
+            Console.WriteLine($"3 - Finalizar {tipoEntidade}");
+
+            Console.WriteLine("S - Voltar");
+
+            Console.WriteLine();
+
+            char operacaoEscolhida = Program.Input<char>("Escolha uma das opções: \n");
+            return operacaoEscolhida;
+        }
 
         protected override EntidadeBase ObterRegistro()
         {
@@ -47,7 +68,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
             Revista revistaSelecionada = (Revista)repositorioRevista.SelecionaPorId(idRevista);
             VerificarDisponibilidade(ref idRevista, ref revistaSelecionada);
 
-            revistaSelecionada.status = true;
+            revistaSelecionada.EstaEmprestada = true;
 
             telaPessoas.VisualizarRegistros(false);
             Console.WriteLine();
@@ -64,7 +85,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloReservas
 
         private void VerificarDisponibilidade(ref int idRevista, ref Revista revistaSelecionada)
         {
-            while (!revistaSelecionada.status == false)
+            while (!revistaSelecionada.EstaEmprestada == false)
             {
                 Console.WriteLine("A revista não está disponível!");
                 idRevista = Program.Input<int>("Por favor, informe o ID da revista a ser retirada:\n");

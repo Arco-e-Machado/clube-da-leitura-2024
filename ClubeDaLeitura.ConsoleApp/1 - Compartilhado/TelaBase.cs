@@ -9,9 +9,7 @@
         {
             Console.Clear();
 
-            Console.WriteLine("----------------------------------------");
-            Console.WriteLine($"|       Gestão de {tipoEntidade}s       ");
-            Console.WriteLine("----------------------------------------");
+            ApresentarCabeçalho();
 
             Console.WriteLine();
 

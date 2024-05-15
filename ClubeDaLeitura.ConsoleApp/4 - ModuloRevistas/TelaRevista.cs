@@ -46,7 +46,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
             {
                 Console.WriteLine(
                "{0, -10} | {1, -15} | {2, -20} | {3, -15} | {4, -10 } | {5, -20} | {6, -15}",
-                revista._ID, revista.titulo, revista.numeroDeEdicao, revista.dataDeEdicao.ToShortDateString(), revista.repositorio._ID, revista.repositorio.etiqueta, revista.ConverterString(revista.status)
+                revista._ID, revista.titulo, revista.numeroDeEdicao, revista.dataDeEdicao.ToShortDateString(), revista.repositorio._ID, revista.repositorio.etiqueta, revista.ConverterString(revista.EstaEmprestada)
               );
             }
 

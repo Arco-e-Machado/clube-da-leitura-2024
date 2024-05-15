@@ -12,14 +12,14 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
         public DateTime dataDeEdicao { get; set; }
         public Caixa repositorio { get; set; }
 
-        public bool status { get; set; }
+        public bool EstaEmprestada { get; set; }
         public Revista(string titulo, int numeroDeEdicao, Caixa repositorio, DateTime dataDeEdicao, bool status)
         {
             this.titulo = titulo;
             this.dataDeEdicao = dataDeEdicao;
             this.repositorio = repositorio;
             this.numeroDeEdicao = numeroDeEdicao;
-            this.status = status;
+            this.EstaEmprestada = status;
             repositorio.GuardarRevista(this);
         }
         public override ArrayList Validar()
@@ -54,7 +54,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
             this.dataDeEdicao = registroNovo.dataDeEdicao;
             this.numeroDeEdicao = registroNovo.numeroDeEdicao;
             this.repositorio = registroNovo.repositorio;
-            this.status = registroNovo.status;
+            this.EstaEmprestada = registroNovo.EstaEmprestada;
         }
+
     }
 }
