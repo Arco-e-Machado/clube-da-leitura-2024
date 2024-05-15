@@ -20,7 +20,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 
         public override ArrayList Validar()
         {
-            ArrayList erros = new ArrayList();
+            ArrayList erros = new();
 
             if (string.IsNullOrEmpty(nome.Trim()))
                 erros.Add("O campo \"nome\" é obrigatório");

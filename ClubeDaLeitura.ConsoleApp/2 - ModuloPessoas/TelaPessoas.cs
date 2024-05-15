@@ -7,13 +7,13 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
     {
         protected override EntidadeBase ObterRegistro()
         {
-            string nome =Program.Input<string>("Por favor, informe o nome do amigo:\n");
+            string nome =Program.Input<string>("Por favor, informe o nome do amigo: ");
 
-            string responsavel = Program.Input<string>("Por favor, informe o responsável:\n");
+            string responsavel = Program.Input<string>("\nPor favor, informe o responsável: ");
 
-            string telefone = Program.Input<string>("Por favor, informe o telefone:\n");
+            string telefone = Program.Input<string>("\nPor favor, informe o telefone: ");
 
-            string endereco = Program.Input<string>("Por favor, informe o endereço:\n");
+            string endereco = Program.Input<string>("\nPor favor, informe o endereço: ");
 
             return new Amigo(nome, responsavel, telefone, endereco);
         }
@@ -37,14 +37,16 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
 
             Console.WriteLine();
 
-            char operacaoEscolhida = Program.Input<char>("Escolha uma das opções: \n");
+            char operacaoEscolhida = Program.Input<char>("Escolha uma das opções: ");
 
             return operacaoEscolhida;
         }
 
         public override void VisualizarRegistros(bool verTudo)
         {
-            Console.WriteLine("Visualizando pessoas:");
+            Console.Clear();
+
+            Console.WriteLine("\nVisualizando pessoas:");
 
             Console.WriteLine();
 
@@ -63,13 +65,14 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
                 );
             }
 
+            Console.WriteLine("\nDigite uma tecla para continuar...");
             Console.ReadKey();
             Console.WriteLine();
         }
 
         public void CadastroTeste()
         {
-            Amigo novoFilhoTeste = new Amigo("leo filho", "leo responsável","4002-8922", "Casa do leo");
+            Amigo novoFilhoTeste = new("leo filho", "leo responsável", "4002-8922", "Casa do leo");
 
             repositorio.Cadastrar(novoFilhoTeste);
         }
