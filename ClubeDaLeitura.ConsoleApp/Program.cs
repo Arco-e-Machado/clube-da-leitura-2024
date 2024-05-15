@@ -149,9 +149,11 @@ namespace ClubeDaLeitura.ConsoleApp
                                 telaCaixa.VisualizarRevistas();
 
                             else if (operacaoEscolhida == '5' && tela.tipoEntidade == "Pessoa")
-                            operacaoEscolhida = telaMulta.ApresentarMenu();
-                            if (operacaoEscolhida == '1')
-                                telaMulta.VisualizarRegistros(true);
+                            {
+                                operacaoEscolhida = telaMulta.ApresentarMenu();
+                                if (operacaoEscolhida == '1' )
+                                    telaMulta.VisualizarRegistros(true);
+                            }
                         }
                     }
                 }
