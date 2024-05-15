@@ -75,6 +75,5 @@ namespace ClubeDaLeitura.ConsoleApp.Compartilhado
 
             return false;
         }
-
     }
 }

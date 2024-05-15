@@ -12,7 +12,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloMultas
         {
             telaPessoas.VisualizarRegistros(true);
 
-            int idAmigo = Program.Input<int>("Digite o id da Caixa desejada");
+            int idAmigo = Program.Input<int>("Digite o id da Caixa desejada: ");
             Amigo amigoMultado = (Amigo)repositorioPessoas.SelecionaPorId(idAmigo);
 
             Console.WriteLine(
@@ -55,7 +55,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloMultas
 
             Console.WriteLine();
 
-            char operacaoEscolhida = Program.Input<char>("Escolha uma das opções:\n");
+            char operacaoEscolhida = Program.Input<char>("Escolha uma das opções: ");
 
             return operacaoEscolhida;
 

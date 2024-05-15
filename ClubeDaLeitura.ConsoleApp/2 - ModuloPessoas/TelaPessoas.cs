@@ -31,7 +31,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
             Console.WriteLine($"2 - Editar {tipoEntidade}");
             Console.WriteLine($"3 - Excluir {tipoEntidade}");
             Console.WriteLine($"4 - Visualizar {tipoEntidade}s");
-            Console.WriteLine($"5 - Gerenciar Multas do {tipoEntidade}");
+            Console.WriteLine($"5 - Gerenciar Multas do {tipoEntidade}\n");
 
             Console.WriteLine("S - Voltar");
 
@@ -46,7 +46,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
         {
             Console.Clear();
 
-            Console.WriteLine("\nVisualizando pessoas:");
+            Console.WriteLine("Visualizando pessoas:");
 
             Console.WriteLine();
 
@@ -65,7 +65,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloPessoas
                 );
             }
 
-            Console.WriteLine("\nDigite uma tecla para continuar...");
+            Console.WriteLine("\nDigite qualquer tecla para continuar...");
             Console.ReadKey();
             Console.WriteLine();
         }

@@ -20,10 +20,12 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
         protected override EntidadeBase ObterRegistro()
         {
             telaPessoas.VisualizarRegistros(false);
-            int idAmigo = Program.Input<int>("Por favor, informe o ID do amigo:\n");
+
+            int idAmigo = Program.Input<int>("Por favor, informe o ID do amigo: ");
             Amigo amigoSelecionado = (Amigo)repositorioPessoas.SelecionaPorId(idAmigo);
 
             telaRevista.VisualizarRegistros(false);
+
             int idRevista = Program.Input<int>("Por favor, informe ID da revista:\n");
             Revista revistaSelecionada = (Revista)repositorioRevistas.SelecionaPorId(idRevista);
 
@@ -37,6 +39,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
         }
         public override void VisualizarRegistros(bool verTudo)
         {
+            Console.Clear();
+
             Console.WriteLine("Visualizando Revistas");
 
             Console.WriteLine();
@@ -60,14 +64,15 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
               );
             }
 
-            Console.ReadLine();
+            Console.WriteLine("\nDigite qualquer tecla para continuar: ");
+            Console.ReadKey();
             Console.WriteLine();
         }
 
         public void FinalizarEmprestimo()
         {
             VisualizarRegistros(true);
-            int idEmprestimo = Program.Input<int>("Digite o ID do Emprestimo desejado:\n");
+            int idEmprestimo = Program.Input<int>("Digite o ID do Emprestimo desejado: ");
             Emprestimo emprestimoSelecionado = (Emprestimo)repositorio.SelecionaPorId(idEmprestimo);
 
             DevolverRevista(emprestimoSelecionado);
@@ -94,14 +99,16 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloEmprestimo
             Console.WriteLine();
 
             Console.WriteLine($"1 - Cadastrar {tipoEntidade}");
-            Console.WriteLine($"2 - Visualizar {tipoEntidade}s");
-            Console.WriteLine($"3 - Finalizar {tipoEntidade}");
+            Console.WriteLine($"2 - Editar {tipoEntidade}");
+            Console.WriteLine($"3 - Excluir {tipoEntidade}");
+            Console.WriteLine($"4 - Visualizar {tipoEntidade}s");
+            Console.WriteLine($"5 - Finalizar {tipoEntidade}");
 
             Console.WriteLine("S - Voltar");
 
             Console.WriteLine();
 
-            char operacaoEscolhida = Program.Input<char>("Escolha uma das opções: \n");
+            char operacaoEscolhida = Program.Input<char>("Escolha uma das opções: ");
             return operacaoEscolhida;
         }
 

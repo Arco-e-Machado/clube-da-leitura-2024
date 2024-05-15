@@ -13,14 +13,13 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
 
         protected override EntidadeBase ObterRegistro()
         {
-            string titulo = Program.Input<string>("Por favor, informe o titulo da revista:\n");
+            string titulo = Program.Input<string>("Por favor, informe o titulo da revista: ");
 
-            int numeroDeEdicao = Program.Input<int>("Por favor, informe o número de edição da revista:\n");
+            int numeroDeEdicao = Program.Input<int>("\nPor favor, informe o número de edição da revista: ");
 
-            DateTime dataDeEdicao = Program.Input<DateTime>("Por favor, informe o ano de publicação da revista:\n");
+            DateTime dataDeEdicao = Program.Input<DateTime>("\nPor favor, informe o ano de publicação da revista: ");
 
-
-            int idCaixa = Program.Input<int>("Por favor, informe o ID da caixa");
+            int idCaixa = Program.Input<int>("\nPor favor, informe o ID da caixa: ");
             Caixa repositorioRevista = (Caixa)repositorioCaixa.SelecionaPorId(idCaixa);
 
             bool status = false;
@@ -31,7 +30,9 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
 
         public override void VisualizarRegistros(bool verTudo)
         {
-            Console.WriteLine("Visualizando Revistas");
+            Console.Clear();
+
+            Console.WriteLine("Visualizando Revistas....");
 
             Console.WriteLine();
 
@@ -50,7 +51,8 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloRevistas
               );
             }
 
-            Console.ReadLine();
+            Console.Write("Digite qualquer tecla para continuar...\n ");
+            Console.ReadKey();
             Console.WriteLine();
         }
 
