@@ -61,6 +61,9 @@ namespace ClubeDaLeitura.ConsoleApp
             telaEmprestimo.telaRevista = telaRevista;
             telaEmprestimo.telaMulta = telaMulta;
 
+            telaMulta.telaPessoas = telaPessoas;
+            telaMulta.repositorioPessoas = repositorioPessoas;
+
             telaEmprestimo.repositorioPessoas = repositorioPessoas;
             telaEmprestimo.repositorioRevistas = repositorioRevistas;
             telaEmprestimo.repositorioMulta = repositorioMulta;
@@ -70,7 +73,7 @@ namespace ClubeDaLeitura.ConsoleApp
             telaCaixa.CadastroTeste();
             telaRevista.CadastroTeste();
             telaEmprestimo.CadastroTeste();
-
+            telaEmprestimo.Multar();
             while (true)
             {
                 char opcaoPrincipalEscolhida = TelaPrincipal.ApresentarMenuPrincipal();
@@ -141,9 +144,14 @@ namespace ClubeDaLeitura.ConsoleApp
                             else if (operacaoEscolhida == '4')
                                 tela.VisualizarRegistros(true);
 
-                            else if (operacaoEscolhida == '5')
-                            {
+                            else if (operacaoEscolhida == '5' && tela.tipoEntidade == "Caixa")
                                 telaCaixa.VisualizarRevistas();
+
+                            else if (operacaoEscolhida == '5' && tela.tipoEntidade == "Pessoa")
+                            {
+                                operacaoEscolhida = telaMulta.ApresentarMenu();
+                                if (operacaoEscolhida == '1' )
+                                    telaMulta.VisualizarRegistros(true);
                             }
                         }
                     }

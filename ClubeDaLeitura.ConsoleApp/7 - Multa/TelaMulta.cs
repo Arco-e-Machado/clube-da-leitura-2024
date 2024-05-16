@@ -10,6 +10,7 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloMultas
         public RepositorioPessoas repositorioPessoas = null;
         public override void VisualizarRegistros(bool verTudo)
         {
+            
             telaPessoas.VisualizarRegistros(true);
 
             int idAmigo = Program.Input<int>("Digite o id da Caixa desejada: ");
